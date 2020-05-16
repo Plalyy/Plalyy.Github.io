@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Plalyy</title>
+  <icon>https://www.gravatar.com/avatar/727063e33fd1a1120f157a9d4f8c65fc</icon>
+  <subtitle>选择热爱 热爱选择</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://yoursite.com/"/>
+  <updated>2020-05-13T08:59:38.330Z</updated>
+  <id>http://yoursite.com/</id>
+  
+  <author>
+    <name>Plalyy</name>
+    <email>plalyy199@sina.com</email>
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Hello</title>
+    <link href="http://yoursite.com/2020/05/13/Hello/"/>
+    <id>http://yoursite.com/2020/05/13/Hello/</id>
+    <published>2020-05-13T08:52:36.000Z</published>
+    <updated>2020-05-13T08:59:38.330Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;为什么开一个这样的东西？&lt;/p&gt;
+&lt;p&gt;很多次想百度解决问题，结果大多都是复制来复制去，甚至复制的会是错的，想整理自己的问题以及解决方式，希望有点用吧。&lt;/p&gt;
+&lt;p&gt;另一方面，想记下来一点东西吧，这样更有意思点？&lt;/p&gt;
+&lt;h2 id=&quot;还有别的因素，想不到了。&quot;&gt;&lt;a
+        
+      
+    
+    </summary>
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Hello World</title>
+    <link href="http://yoursite.com/2020/05/13/hello-world/"/>
+    <id>http://yoursite.com/2020/05/13/hello-world/</id>
+    <published>2020-05-13T08:03:40.993Z</published>
+    <updated>2020-05-13T08:03:40.993Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a
+        
+      
+    
+    </summary>
+    
+    
+    
+  </entry>
+  
+</feed>
