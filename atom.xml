@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2020-05-13T08:59:38.330Z</updated>
+  <updated>2020-05-16T10:19:28.767Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -17,11 +17,11 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>Hello</title>
-    <link href="http://yoursite.com/2020/05/13/Hello/"/>
-    <id>http://yoursite.com/2020/05/13/Hello/</id>
-    <published>2020-05-13T08:52:36.000Z</published>
-    <updated>2020-05-13T08:59:38.330Z</updated>
+    <title>第一天</title>
+    <link href="http://yoursite.com/2020/05/16/%E7%AC%AC%E4%B8%80%E5%A4%A9/"/>
+    <id>http://yoursite.com/2020/05/16/%E7%AC%AC%E4%B8%80%E5%A4%A9/</id>
+    <published>2020-05-16T10:14:18.000Z</published>
+    <updated>2020-05-16T10:19:28.767Z</updated>
     
     <summary type="html">
     
@@ -35,16 +35,18 @@
     
     </summary>
     
+    
+      <category term="随笔" scheme="http://yoursite.com/categories/%E9%9A%8F%E7%AC%94/"/>
     
     
   </entry>
   
   <entry>
-    <title>Hello World</title>
-    <link href="http://yoursite.com/2020/05/13/hello-world/"/>
-    <id>http://yoursite.com/2020/05/13/hello-world/</id>
-    <published>2020-05-13T08:03:40.993Z</published>
-    <updated>2020-05-13T08:03:40.993Z</updated>
+    <title>Hello</title>
+    <link href="http://yoursite.com/2020/05/13/Hello/"/>
+    <id>http://yoursite.com/2020/05/13/Hello/</id>
+    <published>2020-05-13T08:52:36.000Z</published>
+    <updated>2020-05-16T10:13:41.461Z</updated>
     
     <summary type="html">
     
@@ -58,6 +60,8 @@
     
     </summary>
     
+    
+      <category term="随笔" scheme="http://yoursite.com/categories/%E9%9A%8F%E7%AC%94/"/>
     
     
   </entry>
