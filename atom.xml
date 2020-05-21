@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2020-05-16T10:19:28.767Z</updated>
+  <updated>2020-05-21T07:52:14.994Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>最近题目</title>
+    <link href="http://yoursite.com/2020/05/21/%E6%9C%80%E8%BF%91%E9%A2%98%E7%9B%AE/"/>
+    <id>http://yoursite.com/2020/05/21/%E6%9C%80%E8%BF%91%E9%A2%98%E7%9B%AE/</id>
+    <published>2020-05-21T07:43:00.000Z</published>
+    <updated>2020-05-21T07:52:14.994Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;0-最近&quot;&gt;&lt;a href=&quot;#0-最近&quot; class=&quot;headerlink&quot; title=&quot;0.最近&quot;&gt;&lt;/a&gt;0.最近&lt;/h3&gt;&lt;p&gt;前几天比赛挺多的，也挺自闭，补题有点慢了，尤其那个线段树专场搞的我有点崩溃，让自己怀疑是不是这块的料，还是好好调整下心态吧。&lt;/p&gt;
+&lt;h3 id=&quot;1-焦作站B题&quot;&gt;&lt;a href=&quot;#1-焦作站B题&quot; class=&quot;headerlink&quot; title=&quot;1.焦作站B题&quot;&gt;&lt;/a&gt;1.焦作站B题&lt;/h3&gt;&lt;p&gt;&lt;a href=&quot;https://codeforces.com/gym/102028/problem/B&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;B. Ultraman vs. Aodzilla and Bodzilla&lt;/a&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;题意：作为勇士的锋gg要跟怪兽A、B进行回合式战斗，锋gg每次只能攻击一只怪兽但被两只怪兽攻击，锋gg第 $i$ 回合的伤害为 $i $，请给出最优的攻击序列，要求使锋gg受到最小的伤害且同样伤害的情况下序列的字典序最小。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;del&gt;比赛的时候李哥还是锋gg读了一下题，然后我们就没来得及做了。&lt;/del&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;回合式战斗要想受到最小的伤害，一是优先解决部分怪兽，二是尽可能快速解决战斗。所以分为优先解决A还是B两种情况，然后保证回合数最小。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;先预处理下伤害值 sum[ ] ，因为每天的伤害值是公差为1的等差数列，所以根据lower_bound( HA+HB )确定回合数一定是最优的回合数，不受伤害溢出之类情况的影响，然后具体分析。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="题解" scheme="http://yoursite.com/categories/%E9%A2%98%E8%A7%A3/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>第一天</title>

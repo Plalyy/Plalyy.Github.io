@@ -26,4 +26,126 @@
         <category>随笔</category>
       </categories>
   </entry>
+  <entry>
+    <title>最近题目</title>
+    <url>/2020/05/21/%E6%9C%80%E8%BF%91%E9%A2%98%E7%9B%AE/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h3 id="0-最近"><a href="#0-最近" class="headerlink" title="0.最近"></a>0.最近</h3><p>前几天比赛挺多的，也挺自闭，补题有点慢了，尤其那个线段树专场搞的我有点崩溃，让自己怀疑是不是这块的料，还是好好调整下心态吧。</p>
+<h3 id="1-焦作站B题"><a href="#1-焦作站B题" class="headerlink" title="1.焦作站B题"></a>1.焦作站B题</h3><p><a href="https://codeforces.com/gym/102028/problem/B" target="_blank" rel="noopener">B. Ultraman vs. Aodzilla and Bodzilla</a></p>
+<ul>
+<li><p>题意：作为勇士的锋gg要跟怪兽A、B进行回合式战斗，锋gg每次只能攻击一只怪兽但被两只怪兽攻击，锋gg第 $i$ 回合的伤害为 $i $，请给出最优的攻击序列，要求使锋gg受到最小的伤害且同样伤害的情况下序列的字典序最小。</p>
+</li>
+<li><p><del>比赛的时候李哥还是锋gg读了一下题，然后我们就没来得及做了。</del></p>
+</li>
+<li><p>回合式战斗要想受到最小的伤害，一是优先解决部分怪兽，二是尽可能快速解决战斗。所以分为优先解决A还是B两种情况，然后保证回合数最小。</p>
+</li>
+<li><p>先预处理下伤害值 sum[ ] ，因为每天的伤害值是公差为1的等差数列，所以根据lower_bound( HA+HB )确定回合数一定是最优的回合数，不受伤害溢出之类情况的影响，然后具体分析。</p>
+<a id="more"></a>
+</li>
+<li><p>1.先解决A，lower_bound(HA)获得解决A的回合数，并做差得到解决A时的溢出伤害 $dis$.</p>
+<p>判断剩下的回合数是否可以解决掉B。如果可以，直接根据回合数输出序列，否则假设某一回合的伤害等于溢出的伤害，就可以把该伤害分给B，两只怪兽都可以解决。</p>
+<blockquote>
+<p>只把溢出的伤害全部分给B，所以需要单独的一个回合</p>
+</blockquote>
+</li>
+<li><p>2.先解决B，lower_bound(HB)获得解决B的回合数，并做差得到解决B时的溢出伤害 $dis$。</p>
+<p>根据upper_bound(dis) - 1可以得到保证能解决B的同时能去掉的最长前缀，由这个前缀产生的伤害可以转移给A（注意：该伤害 $\leq$ 解决B的溢出伤害）。</p>
+<p>判断该伤害以及解决B之后的后续伤害能否解决A，如果可以则前缀为攻击A，然后攻击B，最后攻击A。否则做差得到处理怪兽A还需要的伤害 $tis$, 在处理B时，假如 $tis\geq2i+1 || tis==i$，可以当前回合攻击B。</p>
+<blockquote>
+<p>如果想让字典序尽可能小，则先考虑A放在最前的情况是否成立，此时补偿给A的伤害 $\leq$ 处理B溢出伤害。如果不成立，就根据A需要的伤害，尽可能往前面插。</p>
+<blockquote>
+<p>注意不能影响处理B，所以取最长前缀的时候 用的是 upper - 1</p>
+</blockquote>
+</blockquote>
+</li>
+<li><p>两种情况的伤害值容易得出，然后根据伤害值和字典序比较就好了。（讲乱了）</p>
+<pre><code class="c++">#include&lt;bits/stdc++.h&gt;
+using namespace std;
+#define int long long
+const int N = 200020;
+int sum[N];
+signed main()
+{
+    sum[0]=0;
+    for(int i=1;i&lt;100020;i++){
+        sum[i]=sum[i-1]+i;
+    }
+    int t;
+    cin&gt;&gt;t;
+    while(t--){
+        int HA,HB,KA,KB;
+        cin&gt;&gt;HA&gt;&gt;HB&gt;&gt;KA&gt;&gt;KB;
+        string ans1,ans2;
+        //A
+        int t1=lower_bound(sum+1,sum+100000,HA)-sum;
+        int t2=lower_bound(sum+1,sum+100000,HA+HB)-sum;
+        int sum1=t1*KA+t2*KB;
+        if(sum[t2]-sum[t1]&gt;=HB){
+            for(int i=1;i&lt;=t1;i++)    ans1+=&#39;A&#39;;
+            for(int i=t1+1;i&lt;=t2;i++) ans1+=&#39;B&#39;;
+        }
+        else{
+            int dis=sum[t1]-HA;
+            for(int i=1;i&lt;=t1;i++){
+                if(i!=dis) ans1+=&#39;A&#39;;
+                else ans1+=&#39;B&#39;;
+            }
+            for(int i=t1+1;i&lt;=t2;i++) ans1+=&#39;B&#39;;
+        }
+        //B
+        int t3=lower_bound(sum+1,sum+100000,HB)-sum;
+        int sum2=KB*t3+KA*t2;
+        int di=sum[t3]-HB;
+        int t4=upper_bound(sum+1,sum+100000,di)-sum-1;
+        if(sum[t4]+sum[t2]-sum[t3]&gt;=HA){
+            for(int i=1;i&lt;=t4;i++)    ans2+=&#39;A&#39;;
+            for(int i=t4+1;i&lt;=t3;i++) ans2+=&#39;B&#39;;
+            for(int i=t3+1;i&lt;=t2;i++) ans2+=&#39;A&#39;;
+        }
+        else{
+            int dd = HA-(sum[t2]-sum[t3]);
+            for(int i=1;i&lt;=t3;i++){
+                if(dd&gt;=2*i+1||dd==i){
+                    dd-=i,ans2+=&#39;A&#39;;
+                }
+                else ans2+=&#39;B&#39;;
+            }
+            for(int i=t3+1;i&lt;=t2;i++){
+                ans2+=&#39;A&#39;;
+            }
+        }
+        if(sum1&lt;sum2) cout&lt;&lt;sum1&lt;&lt;&quot; &quot;&lt;&lt;ans1&lt;&lt;endl;
+        else if(sum1&gt;sum2) cout&lt;&lt;sum2&lt;&lt;&quot; &quot;&lt;&lt;ans2&lt;&lt;endl;
+        else{
+            if(ans1&lt;ans2) cout&lt;&lt;sum1&lt;&lt;&quot; &quot;&lt;&lt;ans1&lt;&lt;endl;
+            else cout&lt;&lt;sum2&lt;&lt;&quot; &quot;&lt;&lt;ans2&lt;&lt;endl;
+        }
+    }
+}
+</code></pre>
+</li>
+</ul>
+<h3 id="2-美团杯"><a href="#2-美团杯" class="headerlink" title="2.美团杯"></a>2.美团杯</h3><p>美团杯没有打，赛后试着做了一下，让我打的话估计只能拿small了。</p>
+<ul>
+<li><p>A题之前好像见过类似的，不过自己处理的还是有点问题，看了锋gg写的，dp这块还得多做下题。</p>
+</li>
+<li><p>图片解密，看完small，excel设置下条件格式就出来了，large就无力了，想起来CF愚人节场那个判断里外的，python好香啊。</p>
+</li>
+<li><p>魔塔真的好好玩，想起来小时候跟我哥对着电脑各种搞，是男人就***，是童年的感觉了，不过这道题还是离100层遥遥无期啊，small倒是挺简单的。</p>
+</li>
+<li><p>交互题只能过small，记得之前CF有道交互题，你每次选一个序列，能获得目标值在这个序列中的排名，经过*次问你是否能得到原序列还是目标值总排名。所以这道题每次选两个，确定一下排名关系。前些天好像有个学弟问C语言的题，也用到了这个思路。看了别人写的题解，stable_sort学到了，归并排序我之前也只会求个逆序对。</p>
+</li>
+</ul>
+<h3 id="3-CF"><a href="#3-CF" class="headerlink" title="3.CF"></a>3.CF</h3><p>这几场CF暴露出来的问题挺大的，树状数组用的不熟，二分三分做的也不好，多理解多练习一下吧。还有之前看到CF图论板块挺好的，平时做做记录一下。</p>
+<blockquote>
+<p>什么时候才能跟锋gg一样上紫啊</p>
+</blockquote>
+<h3 id="4-期末考试"><a href="#4-期末考试" class="headerlink" title="4.期末考试"></a>4.期末考试</h3><p>还有六门课，概率论和计组好像学的都不怎么好，得好好学一下了。</p>
+<h3 id="5-杂谈"><a href="#5-杂谈" class="headerlink" title="5.杂谈"></a>5.杂谈</h3><p>修改博客文档时发现渲染失败，后来知道 .yml 文件，以及设置的post模板中出现的冒号后均要加空格。</p>
+<p>多组数据一定要考虑memset的问题</p>
+<p>什么时候才能加个音乐播放器呢</p>
+]]></content>
+      <categories>
+        <category>题解</category>
+      </categories>
+  </entry>
 </search>
