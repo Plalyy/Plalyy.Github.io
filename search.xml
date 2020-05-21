@@ -84,8 +84,8 @@
 <h3 id="4-期末考试"><a href="#4-期末考试" class="headerlink" title="4.期末考试"></a>4.期末考试</h3><p>还有六门课，概率论和计组好像学的都不怎么好，得好好学一下了。</p>
 <h3 id="5-杂谈"><a href="#5-杂谈" class="headerlink" title="5.杂谈"></a>5.杂谈</h3><p>修改博客文档时发现渲染失败，后来知道 .yml 文件，以及设置的post模板中出现的冒号后均要加空格。</p>
 <p>多组数据一定要考虑memset的问题</p>
-<p>音乐播放器的问题还没有解决</p>
-<p>加了gitalk评论，不过暂时没有实现匿名功能</p>
+<p>添加音乐播放器，但播放异常的问题还没有解决</p>
+<p>gitalk感觉不太好用，改用valine,邮件自动提醒正在配</p>
 ]]></content>
       <categories>
         <category>题解</category>
