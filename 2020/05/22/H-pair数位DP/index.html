@@ -78,7 +78,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> Word count:</span>
-            <span class="post-count">701</span>
+            <span class="post-count">708</span>
         </span>
     </span>
 
@@ -119,7 +119,8 @@
 </li>
 <li><p>想了好久，转成二进制按位计数，会不会是数位DP，跟杰哥锋哥哥说了下，应该是，然后就去百度学习数位DP了，拉出来不要62的AC代码开始魔改。三维变五维又变七维，最后在锋哥哥的帮助下终于过了。</p>
 </li>
-<li><p>从高位到低位数位DP，其考虑的范围是$(0\leq x\leq A,0\leq y\leq B)$，跟题目要求不同，要注意这里产生的非法情况。</p>
+<li><p>从高位到低位数位DP，其考虑的范围是$(0\leq x\leq A,0\leq y\leq B)$，跟题目要求不同，要注意这里产生的非法情况，大概两种做法吧：</p>
+<a id="more"></a>
 </li>
 <li><p>1.开五维  $dp[pos][pre1][pre2][lim1][lim2]$ ，pre1表示此前与运算与C的比较关系，lim1表示与运算的临界关系，求出总数 $ans$ , 然后减去 $(min(A,C-1)+min(B,C-1)+1)$，0导致的非法情况只在 $xor$ 中出现，所以保证 $\leq c-1$ 。</p>
 </li>
