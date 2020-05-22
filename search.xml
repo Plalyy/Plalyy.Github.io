@@ -36,20 +36,15 @@
 </li>
 <li><p><del>比赛的时候李哥还是锋gg读了一下题，然后我们就没来得及做了。</del></p>
 </li>
-<li><p>回合式战斗要想受到最小的伤害，一是优先解决部分怪兽，二是尽可能快速解决战斗。所以分为优先解决A还是B两种情况，然后保证回合数最小。</p>
-</li>
-<li><p>先预处理下伤害值 sum[ ] ，因为每天的伤害值是公差为1的等差数列，所以根据lower_bound( HA+HB )确定回合数一定是最优的回合数，不受伤害溢出之类情况的影响，然后具体分析。</p>
+<li><p>回合式战斗要想受到最小的伤害，一是优先解决部分怪兽，二是尽可能快速解决战斗。所以分为优先解决A还是B两种情况，然后保证回合数最小。先预处理下伤害值 sum[ ] ，因为每天的伤害值是公差为1的等差数列，所以根据lower_bound( HA+HB )确定回合数一定是最优的回合数，不受伤害溢出之类情况的影响，然后具体分析。</p>
 <a id="more"></a>
 </li>
-<li><p>1.先解决A，lower_bound(HA)获得解决A的回合数，并做差得到解决A时的溢出伤害 $dis$.</p>
-<p>判断剩下的回合数是否可以解决掉B。如果可以，直接根据回合数输出序列，否则假设某一回合的伤害等于溢出的伤害，就可以把该伤害分给B，两只怪兽都可以解决。</p>
+<li><p>1.先解决A，lower(HA)获得解决A的回合数，并做差得到解决A时的溢出伤害 $dis$。判断剩下的回合数是否可以解决掉B。如果可以，直接根据回合数输出序列，否则假设某一回合的伤害等于溢出的伤害，就可以把该伤害分给B，两只怪兽都可以解决。</p>
 <blockquote>
 <p>只把溢出的伤害全部分给B，所以需要单独的一个回合</p>
 </blockquote>
 </li>
-<li><p>2.先解决B，lower_bound(HB)获得解决B的回合数，并做差得到解决B时的溢出伤害 $dis$。</p>
-<p>根据upper_bound(dis) - 1可以得到保证能解决B的同时能去掉的最长前缀，由这个前缀产生的伤害可以转移给A（注意：该伤害 $\leq$ 解决B的溢出伤害）。</p>
-<p>判断该伤害以及解决B之后的后续伤害能否解决A，如果可以则前缀为攻击A，然后攻击B，最后攻击A。否则做差得到处理怪兽A还需要的伤害 $tis$, 在处理B时，假如 $tis\geq2i+1 || tis==i$，可以当前回合攻击B。</p>
+<li><p>2.先解决B，lower(HB)获得解决B的回合数，并做差得到解决B时的溢出伤害 $dis$。根据upper(dis) - 1可以得到保证能解决B的同时能去掉的最长前缀，由这个前缀产生的伤害可以转移给A（注意：该伤害 $\leq$ 解决B的溢出伤害）。判断该伤害以及解决B之后的后续伤害能否解决A，如果可以则前缀为攻击A，然后攻击B，最后攻击A。否则做差得到处理怪兽A还需要的伤害 $tis$, 在处理B时，假如 $tis\geq2i+1 || tis==i$，可以当前回合攻击B。</p>
 <blockquote>
 <p>如果想让字典序尽可能小，则先考虑A放在最前的情况是否成立，此时补偿给A的伤害 $\leq$ 处理B溢出伤害。如果不成立，就根据A需要的伤害，尽可能往前面插。</p>
 <blockquote>
@@ -90,5 +85,35 @@
       <categories>
         <category>题解</category>
       </categories>
+  </entry>
+  <entry>
+    <title>H.pair数位DP</title>
+    <url>/2020/05/22/H-pair%E6%95%B0%E4%BD%8DDP/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h3 id="H-pair-数位DP"><a href="#H-pair-数位DP" class="headerlink" title="H.pair 数位DP"></a>H.pair 数位DP</h3><ul>
+<li><p>题意：给定三个整数A,B,C，求数对个数$(1\leq x\leq A,1\leq y\leq B)$,至少满足以下一个条件：</p>
+<p>$(x $ $and$ $y)&gt;C$</p>
+<p>$(x $ $xor$ $y)&lt;C$</p>
+</li>
+<li><p>想了好久，转成二进制按位计数，会不会是数位DP，跟杰哥锋哥哥说了下，应该是，然后就去百度学习数位DP了，拉出来不要62的AC代码开始魔改。三维变五维又变七维，最后在锋哥哥的帮助下终于过了。</p>
+</li>
+<li><p>从高位到低位数位DP，其考虑的范围是$(0\leq x\leq A,0\leq y\leq B)$，跟题目要求不同，要注意这里产生的非法情况。</p>
+</li>
+<li><p>1.开五维  $dp[pos][pre1][pre2][lim1][lim2]$ ，pre1表示此前与运算与C的比较关系，lim1表示与运算的临界关系，求出总数 $ans$ , 然后减去 $(min(A,C-1)+min(B,C-1)+1)$，0导致的非法情况只在 $xor$ 中出现，所以保证 $\leq c-1$ 。</p>
+</li>
+<li><p>2.开七维  $dp[pos][pre1][pre2][lim1][lim2][vis1][vis2]$ ,在五维的基础上增加了 vis 表示该运算中是否添加过非零值，最后只需要统计vis==1的答案。</p>
+</li>
+<li><p><del>赛时开了七维过的</del>：</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line">ll a[<span class="number">40</span>],b[<span class="number">40</span>],c[<span class="number">40</span>];</span><br><span class="line">ll A,B,C;</span><br><span class="line">ll dp[<span class="number">40</span>][<span class="number">5</span>][<span class="number">5</span>][<span class="number">5</span>][<span class="number">5</span>][<span class="number">2</span>][<span class="number">2</span>];</span><br><span class="line"><span class="function">ll <span class="title">dfs</span><span class="params">(ll pos, ll pre1 ,ll pre2 , ll lim1 ,ll lim2, ll vis1, ll vis2)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(pos == <span class="number">-1</span>)&#123;</span><br><span class="line">        <span class="keyword">if</span>(vis1&amp;&amp;vis2&amp;&amp;(pre1==<span class="number">1</span>||pre2==<span class="number">1</span>) ) <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(dp[pos][pre1][pre2][lim1][lim2][vis1][vis2] != <span class="number">-1</span>) <span class="keyword">return</span> dp[pos][pre1][pre2][lim1][lim2][vis1][vis2];</span><br><span class="line">    ll up1 = lim1 ? a[pos] : <span class="number">1</span>;</span><br><span class="line">    ll up2 = lim2 ? b[pos] : <span class="number">1</span>;</span><br><span class="line">    ll ans = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;=up1;i++)&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;=up2;j++)&#123;</span><br><span class="line">            ll dis1=i&amp;j,dis2=i^j;</span><br><span class="line">            ll m1=pre1,m2=pre2;</span><br><span class="line">            <span class="keyword">if</span>(m1==<span class="number">0</span>)&#123; <span class="comment">// &amp;   之等于时判断</span></span><br><span class="line">                <span class="keyword">if</span>(dis1&gt;c[pos]) m1=<span class="number">1</span>;</span><br><span class="line">                <span class="keyword">else</span> <span class="keyword">if</span>(dis1&lt;c[pos])m1=<span class="number">2</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span>(m2==<span class="number">0</span>)&#123;</span><br><span class="line">                <span class="keyword">if</span>(dis2&lt;c[pos]) m2=<span class="number">1</span>;</span><br><span class="line">                <span class="keyword">else</span> <span class="keyword">if</span>(dis2&gt;c[pos]) m2=<span class="number">2</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            ans+=dfs(pos<span class="number">-1</span>,m1,m2,lim1&amp;&amp;i==up1,lim2&amp;&amp;j==up2, vis1||i,vis2||j );</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> dp[pos][pre1][pre2][lim1][lim2][vis1][vis2] = ans;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    ios::sync_with_stdio(<span class="literal">false</span>);</span><br><span class="line">    <span class="built_in">cin</span>.tie(<span class="number">0</span>);</span><br><span class="line">    <span class="built_in">cout</span>.tie(<span class="number">0</span>);</span><br><span class="line">    <span class="keyword">int</span> t;</span><br><span class="line">    <span class="built_in">cin</span>&gt;&gt;t;</span><br><span class="line">    <span class="keyword">while</span>(t--)&#123;</span><br><span class="line">        <span class="built_in">memset</span>(dp,<span class="number">-1</span>,<span class="keyword">sizeof</span>(dp));</span><br><span class="line">        <span class="built_in">memset</span>(a,<span class="number">0</span>,<span class="keyword">sizeof</span>(a));</span><br><span class="line">        <span class="built_in">memset</span>(b,<span class="number">0</span>,<span class="keyword">sizeof</span>(b));</span><br><span class="line">        <span class="built_in">memset</span>(c,<span class="number">0</span>,<span class="keyword">sizeof</span>(c));</span><br><span class="line">        <span class="built_in">cin</span>&gt;&gt;A&gt;&gt;B&gt;&gt;C;</span><br><span class="line">        ll tmp=A;</span><br><span class="line">        <span class="keyword">int</span> mx=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> cnt=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span>(tmp)&#123;</span><br><span class="line">            a[cnt++]=tmp%<span class="number">2</span>;</span><br><span class="line">            tmp&gt;&gt;=<span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        mx=<span class="built_in">max</span>(mx,cnt);</span><br><span class="line">        tmp=B;</span><br><span class="line">        cnt=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span>(tmp)&#123;</span><br><span class="line">            b[cnt++]=tmp%<span class="number">2</span>;</span><br><span class="line">            tmp&gt;&gt;=<span class="number">1</span>;</span><br><span class="line">        &#125;mx=<span class="built_in">max</span>(mx,cnt);</span><br><span class="line">        tmp=C;</span><br><span class="line">        cnt=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span>(tmp)&#123;</span><br><span class="line">            c[cnt++]=tmp%<span class="number">2</span>;</span><br><span class="line">            tmp&gt;&gt;=<span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        mx=<span class="built_in">max</span>(mx,cnt);</span><br><span class="line">        ll ans=dfs(mx,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>);<span class="comment">//初始化比较关系为0</span></span><br><span class="line">        <span class="built_in">cout</span>&lt;&lt;ans&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>今天总体还算可以，C题我溜去上课耽误了一点时间，等会补下线段树的做法。</p>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>题解</category>
+      </categories>
+      <tags>
+        <tag>DP</tag>
+      </tags>
   </entry>
 </search>
