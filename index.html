@@ -80,6 +80,87 @@
     
     
     
+    <article id="post-树形DP-树上点最远距离" class="article article-type-post" itemscope
+  itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2020/07/11/%E6%A0%91%E5%BD%A2DP-%E6%A0%91%E4%B8%8A%E7%82%B9%E6%9C%80%E8%BF%9C%E8%B7%9D%E7%A6%BB/"
+    >树形DP-树上点最远距离</a> 
+</h2>
+ 
+
+    </header>
+    
+
+    
+    <div class="article-meta">
+      <a href="/2020/07/11/%E6%A0%91%E5%BD%A2DP-%E6%A0%91%E4%B8%8A%E7%82%B9%E6%9C%80%E8%BF%9C%E8%B7%9D%E7%A6%BB/" class="article-date">
+  <time datetime="2020-07-11T09:11:18.000Z" itemprop="datePublished">2020-07-11</time>
+</a>
+      
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E9%A2%98%E8%A7%A3/">题解</a>
+  </div>
+
+      
+      
+      
+    </div>
+    
+
+    
+
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+      
+
+      
+      <p>仍然在往门里钻 , 写题解是希望重新审视一下细节，可能有亿点点乱。</p>
+<ul>
+<li><h4 id="POJ-2196-Computer"><a href="#POJ-2196-Computer" class="headerlink" title="POJ 2196 Computer"></a>POJ 2196 Computer</h4></li>
+</ul>
+<p>题意：一棵树，对于每个结点求出其他点与它最远的距离。</p>
+<p>之前做最远距离时，利用的是树的直径，这次看到该题，发现树形DP也不失为一个好办法，所以想了树形DP的解法。某点的最长距离，很容易想到是到其子树最长距离+该点为根时另外子树最远距离。</p>
+<p>所以设 $dp[i][j],1\leq i\leq n,j=0,1$ , j 的值表示上述两种子树的状态。</p>
+<p>原子树深度由常规的dfs就可以求出，借下来考虑如何求另外部分。所指的另外部分，如下图，也就是该节点父结点及其另外部分，因而，该点的 $dp[2][1]$可以由父结点更新。</p>
+      
+      <a class="article-more-link" href="/2020/07/11/%E6%A0%91%E5%BD%A2DP-%E6%A0%91%E4%B8%8A%E7%82%B9%E6%9C%80%E8%BF%9C%E8%B7%9D%E7%A6%BB/">阅读更多...</a>
+      
+      
+      <!-- reward -->
+      
+    </div>
+    
+    
+      <!-- copyright -->
+      
+    <footer class="article-footer">
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DP/" rel="tag">DP</a></li></ul>
+
+
+    </footer>
+
+  </div>
+
+  
+
+  
+  
+  
+
+  
+  
+  
+
+</article>
+    
     <article id="post-树形DP入门题" class="article article-type-post" itemscope
   itemprop="blogPost" data-scroll-reveal>
 
@@ -127,7 +208,7 @@
 <p>显然$dp[i][j]$表示成员 $i$子树(参加与否)达到的最大值。</p>
 <p>$dp[i][0]=\sum max(dp[j][1],dp[j][0])$, j 为子成员</p>
 <p>$dp[i][1]=\sum dp[j][0]$, j 为子成员</p>
-<p>从根节点开始。</p>
+<p>从根节点开始。</p></li></ul>
       
       <a class="article-more-link" href="/2020/07/11/%E6%A0%91%E5%BD%A2DP%E5%85%A5%E9%97%A8%E9%A2%98/">阅读更多...</a>
       
@@ -599,7 +680,7 @@
 <p>$(x $ $and$ $y)&gt;C$</p>
 <p>$(x $ $xor$ $y)&lt;C$</p>
 <p>想了好久，转成二进制按位计数，会不会是数位DP，跟杰哥锋哥哥说了下，应该是，然后就去百度学习数位DP了，拉出来不要62的AC代码开始魔改。三维变五维又变七维，最后在锋哥哥的帮助下终于过了。</p>
-<p>从高位到低位数位DP，其考虑的范围是$(0\leq x\leq A,0\leq y\leq B)$，跟题目要求不同，要注意这里产生的非法情况，大概两种做法吧：</p>
+<p>从高位到低位数位DP，其考虑的范围是$(0\leq x\leq A,0\leq y\leq B)$，跟题目要求不同，要注意这里产生的非法情况，大概两种做法吧：</p></li></ul>
       
       <a class="article-more-link" href="/2020/05/22/H-pair%E6%95%B0%E4%BD%8DDP/">阅读更多...</a>
       
@@ -680,7 +761,7 @@
 </li>
 <li><p><del>比赛的时候李哥还是锋gg读了一下题，然后我们就没来得及做了。</del></p>
 </li>
-<li><p>回合式战斗要想受到最小的伤害，一是优先解决部分怪兽，二是尽可能快速解决战斗。所以分为优先解决A还是B两种情况，然后保证回合数最小。先预处理下伤害值 sum[ ] ，因为每天的伤害值是公差为1的等差数列，所以根据lower_bound( HA+HB )确定回合数一定是最优的回合数，不受伤害溢出之类情况的影响，然后具体分析。</p>
+<li><p>回合式战斗要想受到最小的伤害，一是优先解决部分怪兽，二是尽可能快速解决战斗。所以分为优先解决A还是B两种情况，然后保证回合数最小。先预处理下伤害值 sum[ ] ，因为每天的伤害值是公差为1的等差数列，所以根据lower_bound( HA+HB )确定回合数一定是最优的回合数，不受伤害溢出之类情况的影响，然后具体分析。</p></li></ul>
       
       <a class="article-more-link" href="/2020/05/21/%E6%9C%80%E8%BF%91%E9%A2%98%E7%9B%AE/">阅读更多...</a>
       
@@ -786,83 +867,14 @@
 
 </article>
     
-    <article id="post-Hello" class="article article-type-post" itemscope
-  itemprop="blogPost" data-scroll-reveal>
-
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2020/05/13/Hello/"
-    >Hello</a> 
-</h2>
- 
-
-    </header>
-    
-
-    
-    <div class="article-meta">
-      <a href="/2020/05/13/Hello/" class="article-date">
-  <time datetime="2020-05-13T08:52:36.000Z" itemprop="datePublished">2020-05-13</time>
-</a>
-      
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E9%9A%8F%E7%AC%94/">随笔</a>
-  </div>
-
-      
-      
-      
-    </div>
-    
-
-    
-
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-      
-
-      
-      <p>为什么开一个这样的东西？</p>
-<p>很多次想百度解决问题，结果大多都是复制来复制去，甚至复制的会是错的，想整理自己的问题以及解决方式，希望有点用吧。</p>
-<p>另一方面，想记下来一点东西吧，这样更有意思点？</p>
-<p>还有别的因素，想不到了。</p>
-<hr>
-
-      
-      <!-- reward -->
-      
-    </div>
-    
-    
-      <!-- copyright -->
-      
-    <footer class="article-footer">
-      
-      
-
-    </footer>
-
-  </div>
-
-  
-
-  
-  
-  
-
-  
-  
-  
-
-</article>
-    
   </article>
   
 
+  
+  <nav class="page-nav">
+    
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">下一页</a>
+  </nav>
   
 </section>
 </div>
