@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2020-07-11T06:51:33.333Z</updated>
+  <updated>2020-07-11T09:45:43.572Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>1</title>
+    <link href="http://yoursite.com/2020/07/11/[%E6%A0%91%E5%BD%A2DP]%E6%A0%91%E4%B8%8A%E7%82%B9%E6%9C%80%E8%BF%9C%E8%B7%9D%E7%A6%BB/"/>
+    <id>http://yoursite.com/2020/07/11/[%E6%A0%91%E5%BD%A2DP]%E6%A0%91%E4%B8%8A%E7%82%B9%E6%9C%80%E8%BF%9C%E8%B7%9D%E7%A6%BB/</id>
+    <published>2020-07-11T09:09:27.000Z</published>
+    <updated>2020-07-11T09:45:43.572Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;仍然在往门里钻 , 写题解是希望重新审视一下细节，可能有亿点点乱。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;h4 id=&quot;POJ-2196-Computer&quot;&gt;&lt;a href=&quot;#POJ-2196-Computer&quot; class=&quot;headerlink&quot; title=&quot;POJ 2196 Computer&quot;&gt;&lt;/a&gt;POJ 2196 Computer&lt;/h4&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;题意：一棵树，对于每个结点求出其他点与它最远的距离。&lt;/p&gt;
+&lt;p&gt;之前做最远距离时，利用的是树的直径，这次看到该题，发现树形DP也不失为一个好办法，所以想了树形DP的解法。某点的最长距离，很容易想到是到其子树最长距离+该点为根时另外子树最远距离。&lt;/p&gt;
+&lt;p&gt;所以设 $dp[i][j],1\leq i\leq n,j=0,1$ , j 的值表示上述两种子树的状态。&lt;/p&gt;
+&lt;p&gt;原子树深度由常规的dfs就可以求出，借下来考虑如何求另外部分。所指的另外部分，如下图，也就是该节点父结点及其另外部分，因而，该点的 $dp[2][1]$可以由父结点更新。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="题解" scheme="http://yoursite.com/categories/%E9%A2%98%E8%A7%A3/"/>
+    
+    
+      <category term="DP" scheme="http://yoursite.com/tags/DP/"/>
+    
+  </entry>
   
   <entry>
     <title>树形DP入门题</title>
@@ -49,17 +77,16 @@
     <link href="http://yoursite.com/2020/07/11/%E5%BC%82%E6%88%96%E5%89%8D%E7%BC%80%E5%92%8C/"/>
     <id>http://yoursite.com/2020/07/11/%E5%BC%82%E6%88%96%E5%89%8D%E7%BC%80%E5%92%8C/</id>
     <published>2020-07-11T01:19:10.000Z</published>
-    <updated>2020-07-11T02:14:27.009Z</updated>
+    <updated>2020-07-11T09:46:45.176Z</updated>
     
     <summary type="html">
     
-      
-      
-        
-        
-          &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;
-        
-      
+      &lt;p&gt;之后更新部分异或/前缀和的题目。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;h4 id=&quot;小AA的数列&quot;&gt;&lt;a href=&quot;#小AA的数列&quot; class=&quot;headerlink&quot; title=&quot;小AA的数列&quot;&gt;&lt;/a&gt;小AA的数列&lt;/h4&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;题意：求数列所有长度为偶数且在$[L,R]$之间的区间异或和之和&lt;/p&gt;
+&lt;p&gt;显然是异或前缀，按位算贡献，问题是如何处理偶数长度和区间限制。然后开始找规律，首先$sum[R-L]=sum[R]\bigoplus sum[L-1]$，针对二进制每位，当前位值为1时，要找此前位为0的数，为0时同理，这样才能产生贡献。所以针对位值，有一个取反的规律，而针对下标，同奇同偶。所以考虑针对每一个右端点，记录此前产生的贡献，并更新贡献。&lt;/p&gt;
     
     </summary>
     
@@ -76,17 +103,15 @@
     <link href="http://yoursite.com/2020/07/09/%E5%88%A0%E6%95%B0%E6%B1%82%E5%89%8D%E7%BC%80-%E5%A5%87%E6%80%AA%E7%9A%84%E5%90%8D%E5%AD%97/"/>
     <id>http://yoursite.com/2020/07/09/%E5%88%A0%E6%95%B0%E6%B1%82%E5%89%8D%E7%BC%80-%E5%A5%87%E6%80%AA%E7%9A%84%E5%90%8D%E5%AD%97/</id>
     <published>2020-07-08T16:25:23.000Z</published>
-    <updated>2020-07-09T02:51:35.512Z</updated>
+    <updated>2020-07-11T09:46:21.038Z</updated>
     
     <summary type="html">
     
-      
-      
-        
-        
-          &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;
-        
-      
+      &lt;p&gt;&lt;a href=&quot;https://vjudge.net/contest/381578#problem/G&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;HDU2019多校第三场 G - Find the answer&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;题意：给定长为n的序列以及整数m，对于位置 i ，可以令 k (k &amp;lt; i)位置的数变为0，使得这段前缀和小于等于m，求每个位置的最小改变数。&lt;/p&gt;
+&lt;p&gt;分析：求最小改变数，也就是尽可能多使用原数，搞一个multiset和一个sum，处理一下进出元素。multiset存可以使用的元素，sum为堆中元素贡献。假如sum+a[i]&amp;lt;=m，插入元素，否则从堆里开始假删除（后面每次是独立的，不能影响后续），当满足合法后若a[i]&amp;lt;max，那么将两个元素互换，很显然次数不变的情况下sum越小越好。同理，用线段树维护子集也可以。&lt;/p&gt;
+&lt;p&gt;必须要有n个空格+换行！不然PE&lt;/p&gt;
+&lt;p&gt;CF #568 Div.2小数据题  &lt;a href=&quot;https://codeforces.com/contest/1185/problem/C2&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;C2. Exam in BerSU (hard version)&lt;/a&gt;&lt;/p&gt;
     
     </summary>
     
