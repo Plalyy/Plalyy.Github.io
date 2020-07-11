@@ -13,7 +13,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
   <title>
-    区间和最大值最小 |  Plalyy
+    树形DP入门题 |  Plalyy
   </title>
   <meta name="generator" content="hexo-theme-ayer">
   
@@ -46,7 +46,7 @@
   <div id="app">
     <main class="content on">
       <section class="outer">
-  <article id="post-区间和最大值最小" class="article article-type-post" itemscope
+  <article id="post-树形DP入门题" class="article article-type-post" itemscope
   itemprop="blogPost" data-scroll-reveal>
 
   <div class="article-inner">
@@ -54,7 +54,7 @@
     <header class="article-header">
        
 <h1 class="article-title sea-center" style="border-left:0" itemprop="name">
-  区间和最大值最小
+  树形DP入门题
 </h1>
  
 
@@ -63,10 +63,14 @@
 
     
     <div class="article-meta">
-      <a href="/2020/07/09/%E5%8C%BA%E9%97%B4%E5%92%8C%E6%9C%80%E5%A4%A7%E5%80%BC%E6%9C%80%E5%B0%8F/" class="article-date">
-  <time datetime="2020-07-08T16:03:16.000Z" itemprop="datePublished">2020-07-09</time>
+      <a href="/2020/07/11/%E6%A0%91%E5%BD%A2DP%E5%85%A5%E9%97%A8%E9%A2%98/" class="article-date">
+  <time datetime="2020-07-11T02:13:00.000Z" itemprop="datePublished">2020-07-11</time>
 </a>
       
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E9%A2%98%E8%A7%A3/">题解</a>
+  </div>
+
       
       
 <div class="word_count">
@@ -74,7 +78,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> Word count:</span>
-            <span class="post-count">0</span>
+            <span class="post-count">752</span>
         </span>
     </span>
 
@@ -83,7 +87,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> Reading time≈</span>
-            <span class="post-count">1 min</span>
+            <span class="post-count">3 min</span>
         </span>
     </span>
 </div>
@@ -94,6 +98,8 @@
 
     
     
+    <div class="tocbot"></div>
+
 
 
 
@@ -106,7 +112,35 @@
       
 
       
-      
+      <p>之前遇到的树形DP，做的都不清楚，重新入下门，希望成功。</p>
+<p>挑几道例题入门，太过类似的就算了</p>
+<ul>
+<li><h4 id="POJ-2342-没有上司的舞会"><a href="#POJ-2342-没有上司的舞会" class="headerlink" title="POJ 2342 没有上司的舞会"></a>POJ 2342 没有上司的舞会</h4><p>题意：公司成员参加舞会，每人都有一个快乐值，成员和直属上司不能同时参加，问如何使得快乐值最大。</p>
+<p>显然$dp[i][j]$表示成员 $i$子树(参加与否)达到的最大值。</p>
+<p>$dp[i][0]=\sum max(dp[j][1],dp[j][0])$, j 为子成员</p>
+<p>$dp[i][1]=\sum dp[j][0]$, j 为子成员</p>
+<p>从根节点开始。</p>
+<a id="more"></a>
+
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line"><span class="keyword">int</span> fa[<span class="number">6020</span>];</span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span> &gt;Q[<span class="number">6020</span>];</span><br><span class="line"><span class="keyword">int</span> dp[<span class="number">6020</span>][<span class="number">3</span>];</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span> x)</span></span>&#123;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;Q[x].<span class="built_in">size</span>();i++)&#123;</span><br><span class="line">		dfs(Q[x][i]);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;Q[x].<span class="built_in">size</span>();i++)&#123;</span><br><span class="line">		<span class="keyword">int</span> j=Q[x][i];</span><br><span class="line">		dp[x][<span class="number">0</span>]+=<span class="built_in">max</span>(dp[j][<span class="number">0</span>],dp[j][<span class="number">1</span>]);</span><br><span class="line">		dp[x][<span class="number">1</span>]+=dp[j][<span class="number">0</span>];</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">int</span> n;</span><br><span class="line">	<span class="keyword">while</span>(<span class="built_in">cin</span>&gt;&gt;n)&#123;</span><br><span class="line">		<span class="keyword">if</span>(!n)&#123;</span><br><span class="line">			<span class="built_in">cin</span>&gt;&gt;n;</span><br><span class="line">			<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)&#123;</span><br><span class="line">			<span class="built_in">cin</span>&gt;&gt;dp[i][<span class="number">1</span>];</span><br><span class="line">			Q[i].<span class="built_in">clear</span>();</span><br><span class="line">			dp[i][<span class="number">0</span>]=<span class="number">0</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;n;i++)&#123;</span><br><span class="line">			<span class="keyword">int</span> u,v;</span><br><span class="line">			<span class="built_in">cin</span>&gt;&gt;u&gt;&gt;v;</span><br><span class="line">			Q[v].push_back(u);</span><br><span class="line">			fa[u]=v;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)&#123;</span><br><span class="line">			<span class="keyword">if</span>(fa[i]==<span class="number">0</span>)&#123;</span><br><span class="line">				dfs(i);</span><br><span class="line">				<span class="built_in">cout</span>&lt;&lt;<span class="built_in">max</span>(dp[i][<span class="number">0</span>],dp[i][<span class="number">1</span>])&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">				<span class="keyword">break</span>;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ul>
+<ul>
+<li><h4 id="P2015-二叉苹果树"><a href="#P2015-二叉苹果树" class="headerlink" title="P2015 二叉苹果树"></a>P2015 二叉苹果树</h4><p>题意：一棵苹果树，若有分支一定是二叉，树根一定是1，每条边有苹果数，问保留Q根树枝，能留下最多的苹果数量。</p>
+<p>分析一下，若想留下某根树枝，则其到根结点路经上的所有边也要保留，所以可以根据子结点更新父结点。而这道题是保留Q根树枝，每个子树的保留树枝都可以更改，所以再加一个简单的01背包，构成状态转移。$dp[i][j]$表示以 $i$ 为结点保留 $j$ 条边的最大苹果数。</p>
+<p>​            $dp[x][j]=max(dp[x][j],dp[x][j-k-1]+dp[i][k]+cost[x][i])$</p>
+<p>​                $j\leq min(cnt[x],Q),k\leq min(j-1,cnt[k])$</p>
+<p>要注意的是在父结点和子节点状态转移时，两者之间必须有边，因而是$j-k-1$ 。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line"><span class="keyword">int</span> fa[<span class="number">200</span>];</span><br><span class="line"><span class="keyword">int</span> n,q;</span><br><span class="line"><span class="keyword">int</span> ma[<span class="number">120</span>][<span class="number">120</span>];</span><br><span class="line"><span class="keyword">int</span> cost[<span class="number">120</span>][<span class="number">120</span>];</span><br><span class="line"><span class="keyword">int</span> cnt[<span class="number">120</span>];</span><br><span class="line"><span class="keyword">int</span> dp[<span class="number">120</span>][<span class="number">120</span>]; <span class="comment">// 结点i 边数为j</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span> x,<span class="keyword">int</span> fa)</span></span>&#123;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span> ; i&lt;=n ; i++ )&#123;</span><br><span class="line">		<span class="keyword">if</span>(ma[x][i]&amp;&amp;i!=x&amp;&amp;i!=fa)&#123;</span><br><span class="line">			dfs(i,x);</span><br><span class="line">			cnt[x]+=cnt[i]+<span class="number">1</span>;</span><br><span class="line">			<span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="built_in">min</span>(cnt[x],q);j;j--)&#123;</span><br><span class="line">				<span class="keyword">for</span>(<span class="keyword">int</span> k=<span class="built_in">min</span>(j<span class="number">-1</span>,cnt[i]);k&gt;=<span class="number">0</span>;k--)&#123;</span><br><span class="line">					dp[x][j]=<span class="built_in">max</span>(dp[x][j],dp[x][j-k<span class="number">-1</span>]+dp[i][k]+cost[x][i]);</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="built_in">cin</span>&gt;&gt;n&gt;&gt;q;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;n;i++)&#123;</span><br><span class="line">		<span class="keyword">int</span> a,b,c;</span><br><span class="line">		<span class="built_in">cin</span>&gt;&gt;a&gt;&gt;b&gt;&gt;c;</span><br><span class="line">		ma[a][b]=ma[b][a]=<span class="number">1</span>;</span><br><span class="line">		cost[a][b]=c;</span><br><span class="line">	&#125;</span><br><span class="line">	dfs(<span class="number">1</span>,<span class="number">-1</span>);</span><br><span class="line">	<span class="built_in">cout</span>&lt;&lt;dp[<span class="number">1</span>][q]&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ul>
+
       
       <!-- reward -->
       
@@ -118,6 +152,8 @@
     <footer class="article-footer">
       
       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DP/" rel="tag">DP</a></li></ul>
+
 
     </footer>
 
@@ -128,9 +164,9 @@
   <nav class="article-nav">
     
     
-      <a href="/2020/06/15/XIU-%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/" class="article-nav-link">
+      <a href="/2020/07/11/%E5%BC%82%E6%88%96%E5%89%8D%E7%BC%80%E5%92%8C/" class="article-nav-link">
         <strong class="article-nav-caption">下一篇</strong>
-        <div class="article-nav-title">XIU-微信小程序</div>
+        <div class="article-nav-title">异或前缀和</div>
       </a>
     
   </nav>

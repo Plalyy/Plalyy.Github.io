@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2020-07-08T16:03:16.301Z</updated>
+  <updated>2020-07-11T06:51:33.333Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -17,11 +17,39 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>区间和最大值最小</title>
-    <link href="http://yoursite.com/2020/07/09/%E5%8C%BA%E9%97%B4%E5%92%8C%E6%9C%80%E5%A4%A7%E5%80%BC%E6%9C%80%E5%B0%8F/"/>
-    <id>http://yoursite.com/2020/07/09/%E5%8C%BA%E9%97%B4%E5%92%8C%E6%9C%80%E5%A4%A7%E5%80%BC%E6%9C%80%E5%B0%8F/</id>
-    <published>2020-07-08T16:03:16.000Z</published>
-    <updated>2020-07-08T16:03:16.301Z</updated>
+    <title>树形DP入门题</title>
+    <link href="http://yoursite.com/2020/07/11/%E6%A0%91%E5%BD%A2DP%E5%85%A5%E9%97%A8%E9%A2%98/"/>
+    <id>http://yoursite.com/2020/07/11/%E6%A0%91%E5%BD%A2DP%E5%85%A5%E9%97%A8%E9%A2%98/</id>
+    <published>2020-07-11T02:13:00.000Z</published>
+    <updated>2020-07-11T06:51:33.333Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;之前遇到的树形DP，做的都不清楚，重新入下门，希望成功。&lt;/p&gt;
+&lt;p&gt;挑几道例题入门，太过类似的就算了&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;h4 id=&quot;POJ-2342-没有上司的舞会&quot;&gt;&lt;a href=&quot;#POJ-2342-没有上司的舞会&quot; class=&quot;headerlink&quot; title=&quot;POJ 2342 没有上司的舞会&quot;&gt;&lt;/a&gt;POJ 2342 没有上司的舞会&lt;/h4&gt;&lt;p&gt;题意：公司成员参加舞会，每人都有一个快乐值，成员和直属上司不能同时参加，问如何使得快乐值最大。&lt;/p&gt;
+&lt;p&gt;显然$dp[i][j]$表示成员 $i$子树(参加与否)达到的最大值。&lt;/p&gt;
+&lt;p&gt;$dp[i][0]=\sum max(dp[j][1],dp[j][0])$, j 为子成员&lt;/p&gt;
+&lt;p&gt;$dp[i][1]=\sum dp[j][0]$, j 为子成员&lt;/p&gt;
+&lt;p&gt;从根节点开始。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="题解" scheme="http://yoursite.com/categories/%E9%A2%98%E8%A7%A3/"/>
+    
+    
+      <category term="DP" scheme="http://yoursite.com/tags/DP/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>异或前缀和</title>
+    <link href="http://yoursite.com/2020/07/11/%E5%BC%82%E6%88%96%E5%89%8D%E7%BC%80%E5%92%8C/"/>
+    <id>http://yoursite.com/2020/07/11/%E5%BC%82%E6%88%96%E5%89%8D%E7%BC%80%E5%92%8C/</id>
+    <published>2020-07-11T01:19:10.000Z</published>
+    <updated>2020-07-11T02:14:27.009Z</updated>
     
     <summary type="html">
     
@@ -35,6 +63,35 @@
     
     </summary>
     
+    
+      <category term="题解" scheme="http://yoursite.com/categories/%E9%A2%98%E8%A7%A3/"/>
+    
+    
+      <category term="前缀和" scheme="http://yoursite.com/tags/%E5%89%8D%E7%BC%80%E5%92%8C/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>删数求前缀-奇怪的名字</title>
+    <link href="http://yoursite.com/2020/07/09/%E5%88%A0%E6%95%B0%E6%B1%82%E5%89%8D%E7%BC%80-%E5%A5%87%E6%80%AA%E7%9A%84%E5%90%8D%E5%AD%97/"/>
+    <id>http://yoursite.com/2020/07/09/%E5%88%A0%E6%95%B0%E6%B1%82%E5%89%8D%E7%BC%80-%E5%A5%87%E6%80%AA%E7%9A%84%E5%90%8D%E5%AD%97/</id>
+    <published>2020-07-08T16:25:23.000Z</published>
+    <updated>2020-07-09T02:51:35.512Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="题解" scheme="http://yoursite.com/categories/%E9%A2%98%E8%A7%A3/"/>
     
     
   </entry>

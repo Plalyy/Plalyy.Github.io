@@ -80,7 +80,7 @@
     
     
     
-    <article id="post-区间和最大值最小" class="article article-type-post" itemscope
+    <article id="post-树形DP入门题" class="article article-type-post" itemscope
   itemprop="blogPost" data-scroll-reveal>
 
   <div class="article-inner">
@@ -88,8 +88,8 @@
     <header class="article-header">
        
 <h2 itemprop="name">
-  <a class="article-title" href="/2020/07/09/%E5%8C%BA%E9%97%B4%E5%92%8C%E6%9C%80%E5%A4%A7%E5%80%BC%E6%9C%80%E5%B0%8F/"
-    >区间和最大值最小</a> 
+  <a class="article-title" href="/2020/07/11/%E6%A0%91%E5%BD%A2DP%E5%85%A5%E9%97%A8%E9%A2%98/"
+    >树形DP入门题</a> 
 </h2>
  
 
@@ -98,10 +98,14 @@
 
     
     <div class="article-meta">
-      <a href="/2020/07/09/%E5%8C%BA%E9%97%B4%E5%92%8C%E6%9C%80%E5%A4%A7%E5%80%BC%E6%9C%80%E5%B0%8F/" class="article-date">
-  <time datetime="2020-07-08T16:03:16.000Z" itemprop="datePublished">2020-07-09</time>
+      <a href="/2020/07/11/%E6%A0%91%E5%BD%A2DP%E5%85%A5%E9%97%A8%E9%A2%98/" class="article-date">
+  <time datetime="2020-07-11T02:13:00.000Z" itemprop="datePublished">2020-07-11</time>
 </a>
       
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E9%A2%98%E8%A7%A3/">题解</a>
+  </div>
+
       
       
       
@@ -116,7 +120,181 @@
       
 
       
+      <p>之前遇到的树形DP，做的都不清楚，重新入下门，希望成功。</p>
+<p>挑几道例题入门，太过类似的就算了</p>
+<ul>
+<li><h4 id="POJ-2342-没有上司的舞会"><a href="#POJ-2342-没有上司的舞会" class="headerlink" title="POJ 2342 没有上司的舞会"></a>POJ 2342 没有上司的舞会</h4><p>题意：公司成员参加舞会，每人都有一个快乐值，成员和直属上司不能同时参加，问如何使得快乐值最大。</p>
+<p>显然$dp[i][j]$表示成员 $i$子树(参加与否)达到的最大值。</p>
+<p>$dp[i][0]=\sum max(dp[j][1],dp[j][0])$, j 为子成员</p>
+<p>$dp[i][1]=\sum dp[j][0]$, j 为子成员</p>
+<p>从根节点开始。</p>
       
+      <a class="article-more-link" href="/2020/07/11/%E6%A0%91%E5%BD%A2DP%E5%85%A5%E9%97%A8%E9%A2%98/">阅读更多...</a>
+      
+      
+      <!-- reward -->
+      
+    </div>
+    
+    
+      <!-- copyright -->
+      
+    <footer class="article-footer">
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DP/" rel="tag">DP</a></li></ul>
+
+
+    </footer>
+
+  </div>
+
+  
+
+  
+  
+  
+
+  
+  
+  
+
+</article>
+    
+    <article id="post-异或前缀和" class="article article-type-post" itemscope
+  itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2020/07/11/%E5%BC%82%E6%88%96%E5%89%8D%E7%BC%80%E5%92%8C/"
+    >异或前缀和</a> 
+</h2>
+ 
+
+    </header>
+    
+
+    
+    <div class="article-meta">
+      <a href="/2020/07/11/%E5%BC%82%E6%88%96%E5%89%8D%E7%BC%80%E5%92%8C/" class="article-date">
+  <time datetime="2020-07-11T01:19:10.000Z" itemprop="datePublished">2020-07-11</time>
+</a>
+      
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E9%A2%98%E8%A7%A3/">题解</a>
+  </div>
+
+      
+      
+      
+    </div>
+    
+
+    
+
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+      
+
+      
+      <p>之后更新部分异或/前缀和的题目。</p>
+<ul>
+<li><h4 id="小AA的数列"><a href="#小AA的数列" class="headerlink" title="小AA的数列"></a>小AA的数列</h4></li>
+</ul>
+<p>题意：求数列所有长度为偶数且在$[L,R]$之间的区间异或和之和</p>
+<p>显然是异或前缀，按位算贡献，问题是如何处理偶数长度和区间限制。然后开始找规律，首先$sum[R-L]=sum[R]\bigoplus sum[L-1]$，针对二进制每位，当前位值为1时，要找此前位为0的数，为0时同理，这样才能产生贡献。所以针对位值，有一个取反的规律，而针对下标，同奇同偶。所以考虑针对每一个右端点，记录此前产生的贡献，并更新贡献。</p>
+<p>接下来考虑如何记录和更新，L和R为奇数时可以调整为偶数，因而从$j==L$开始枚举，每次固定长度$L$进行更新，即对$j-L$的位置贡献加1，然后答案加上满足的贡献。当$j&gt;=R$时，$j-R$的贡献要减1，因为不可能在计算到该位置。</p>
+<p>至于固定长度为$L$，在枚举右端点的时候，是可以覆盖到所有左端点的情况的，能更新所有满足的贡献值，所以无需再枚举长度。</p>
+<p>总结来说，就是根据位值的0/1和下标的0/1去更新以及计算状态，用$dp[i][j]$，表示前缀中位值为$i$，下标奇偶性为$j$的状态数。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line"><span class="keyword">const</span> ll mod = <span class="number">1e9</span>+<span class="number">7</span>;</span><br><span class="line">ll a[<span class="number">100020</span>];</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	ios::sync_with_stdio(<span class="literal">false</span>);</span><br><span class="line">	<span class="built_in">cin</span>.tie(<span class="number">0</span>),<span class="built_in">cout</span>.tie(<span class="number">0</span>);</span><br><span class="line">	<span class="keyword">int</span> n,L,R;</span><br><span class="line">	<span class="built_in">cin</span>&gt;&gt;n&gt;&gt;L&gt;&gt;R;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)&#123;</span><br><span class="line">		<span class="built_in">cin</span>&gt;&gt;a[i];</span><br><span class="line">		a[i]^=a[i<span class="number">-1</span>];    <span class="comment">//异或前缀</span></span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span>(L&amp;<span class="number">1</span>) L++;         <span class="comment">//调整区间</span></span><br><span class="line">	<span class="keyword">if</span>(R&amp;<span class="number">1</span>) R--;</span><br><span class="line">	<span class="keyword">if</span>(L&gt;R)&#123;</span><br><span class="line">		<span class="built_in">cout</span>&lt;&lt;<span class="string">"0"</span>&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">		<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	ll ans=<span class="number">0</span>;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;<span class="number">32</span>;i++)&#123;</span><br><span class="line">		ll p =(<span class="number">1l</span>l&lt;&lt;i);</span><br><span class="line">		ll dp[<span class="number">2</span>][<span class="number">2</span>]=&#123;<span class="number">0</span>&#125;;</span><br><span class="line">		ll num=<span class="number">0</span>;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> j=L;j&lt;=n;j++)&#123;</span><br><span class="line">			dp[(a[j-L]&gt;&gt;i)&amp;<span class="number">1</span>][(j-L)&amp;<span class="number">1</span>]++;   <span class="comment">//记录贡献</span></span><br><span class="line">			num+=dp[((a[j]&gt;&gt;i)&amp;<span class="number">1</span>)^<span class="number">1</span>][j&amp;<span class="number">1</span>];  <span class="comment">//位值取反、奇偶性相同</span></span><br><span class="line">			num%=mod;</span><br><span class="line">			<span class="keyword">if</span>(j&gt;=R)&#123;</span><br><span class="line">				dp[(a[j-R]&gt;&gt;i)&amp;<span class="number">1</span>][(j-R)&amp;<span class="number">1</span>]--;<span class="comment">//对长度超限的减掉贡献</span></span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		ans+=num*p%mod;</span><br><span class="line">		ans%=mod;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">cout</span>&lt;&lt;ans&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+      
+      <!-- reward -->
+      
+    </div>
+    
+    
+      <!-- copyright -->
+      
+    <footer class="article-footer">
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%89%8D%E7%BC%80%E5%92%8C/" rel="tag">前缀和</a></li></ul>
+
+
+    </footer>
+
+  </div>
+
+  
+
+  
+  
+  
+
+  
+  
+  
+
+</article>
+    
+    <article id="post-删数求前缀-奇怪的名字" class="article article-type-post" itemscope
+  itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2020/07/09/%E5%88%A0%E6%95%B0%E6%B1%82%E5%89%8D%E7%BC%80-%E5%A5%87%E6%80%AA%E7%9A%84%E5%90%8D%E5%AD%97/"
+    >删数求前缀-奇怪的名字</a> 
+</h2>
+ 
+
+    </header>
+    
+
+    
+    <div class="article-meta">
+      <a href="/2020/07/09/%E5%88%A0%E6%95%B0%E6%B1%82%E5%89%8D%E7%BC%80-%E5%A5%87%E6%80%AA%E7%9A%84%E5%90%8D%E5%AD%97/" class="article-date">
+  <time datetime="2020-07-08T16:25:23.000Z" itemprop="datePublished">2020-07-09</time>
+</a>
+      
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E9%A2%98%E8%A7%A3/">题解</a>
+  </div>
+
+      
+      
+      
+    </div>
+    
+
+    
+
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+      
+
+      
+      <p><a href="https://vjudge.net/contest/381578#problem/G" target="_blank" rel="noopener">HDU2019多校第三场 G - Find the answer</a></p>
+<p>题意：给定长为n的序列以及整数m，对于位置 i ，可以令 k (k &lt; i)位置的数变为0，使得这段前缀和小于等于m，求每个位置的最小改变数。</p>
+<p>分析：求最小改变数，也就是尽可能多使用原数，搞一个multiset和一个sum，处理一下进出元素。multiset存可以使用的元素，sum为堆中元素贡献。假如sum+a[i]&lt;=m，插入元素，否则从堆里开始假删除（后面每次是独立的，不能影响后续），当满足合法后若a[i]&lt;max，那么将两个元素互换，很显然次数不变的情况下sum越小越好。同理，用线段树维护子集也可以。</p>
+<p><strong>必须要有n个空格+换行！不然PE</strong></p>
+<p>CF #568 Div.2小数据题  <a href="https://codeforces.com/contest/1185/problem/C2" target="_blank" rel="noopener">C2. Exam in BerSU (hard version)</a></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn=<span class="number">2e5</span>+<span class="number">7</span>;</span><br><span class="line"><span class="keyword">int</span> a[maxn],ans[maxn];</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    ios::sync_with_stdio(<span class="literal">false</span>);</span><br><span class="line">    <span class="built_in">cin</span>.tie(<span class="number">0</span>);</span><br><span class="line">    <span class="keyword">int</span> q;</span><br><span class="line">    <span class="built_in">cin</span>&gt;&gt;q;</span><br><span class="line">    <span class="keyword">while</span>(q--)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">int</span> n,m;</span><br><span class="line">        <span class="built_in">cin</span>&gt;&gt;n&gt;&gt;m;</span><br><span class="line">        <span class="built_in">multiset</span>&lt;<span class="keyword">int</span>&gt;pq;</span><br><span class="line">        ll sum=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;++i)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">cin</span>&gt;&gt;a[i];</span><br><span class="line">            <span class="keyword">if</span>(i==<span class="number">0</span>)&#123;</span><br><span class="line">                ans[i]=<span class="number">0</span>;</span><br><span class="line">                pq.insert(a[i]);</span><br><span class="line">                sum=a[i];</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span>(sum+a[i]&lt;=m)&#123;</span><br><span class="line">                pq.insert(a[i]);</span><br><span class="line">                ans[i]=i-pq.<span class="built_in">size</span>()+<span class="number">1</span>;</span><br><span class="line">                sum+=a[i];</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">auto</span> pis=pq.<span class="built_in">end</span>();</span><br><span class="line">            pis--;</span><br><span class="line">            <span class="keyword">int</span> num=<span class="number">0</span>;</span><br><span class="line">            ll tmp=sum;</span><br><span class="line">            <span class="keyword">while</span>(tmp+a[i]&gt;m)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="comment">//开始删除</span></span><br><span class="line">                tmp-=*pis,num++;</span><br><span class="line">                <span class="keyword">if</span>(tmp+a[i]&lt;=m)&#123;</span><br><span class="line">                   <span class="comment">//</span></span><br><span class="line">                    ans[i]=i-pq.<span class="built_in">size</span>()+num;</span><br><span class="line">                    <span class="keyword">auto</span> pp =pq.<span class="built_in">end</span>();</span><br><span class="line">                    pp--;</span><br><span class="line">                    <span class="keyword">if</span>(a[i]&lt;*pp)&#123;</span><br><span class="line">                        sum=sum+a[i]-*pp;</span><br><span class="line">                        pq.insert(a[i]);</span><br><span class="line">                        pq.erase(pp);</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">                pis--;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)&#123;</span><br><span class="line">            <span class="built_in">cout</span>&lt;&lt;ans[i]&lt;&lt;<span class="string">" "</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">cout</span>&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
       
       <!-- reward -->
       
