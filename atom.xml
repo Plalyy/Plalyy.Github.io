@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2020-07-11T10:02:45.570Z</updated>
+  <updated>2020-07-11T06:51:33.333Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,34 +15,6 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>树形DP-树上点最远距离</title>
-    <link href="http://yoursite.com/2020/07/11/%E6%A0%91%E5%BD%A2DP-%E6%A0%91%E4%B8%8A%E7%82%B9%E6%9C%80%E8%BF%9C%E8%B7%9D%E7%A6%BB/"/>
-    <id>http://yoursite.com/2020/07/11/%E6%A0%91%E5%BD%A2DP-%E6%A0%91%E4%B8%8A%E7%82%B9%E6%9C%80%E8%BF%9C%E8%B7%9D%E7%A6%BB/</id>
-    <published>2020-07-11T09:11:18.000Z</published>
-    <updated>2020-07-11T10:02:45.570Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;仍然在往门里钻 , 写题解是希望重新审视一下细节，可能有亿点点乱。&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;h4 id=&quot;POJ-2196-Computer&quot;&gt;&lt;a href=&quot;#POJ-2196-Computer&quot; class=&quot;headerlink&quot; title=&quot;POJ 2196 Computer&quot;&gt;&lt;/a&gt;POJ 2196 Computer&lt;/h4&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;题意：一棵树，对于每个结点求出其他点与它最远的距离。&lt;/p&gt;
-&lt;p&gt;之前做最远距离时，利用的是树的直径，这次看到该题，发现树形DP也不失为一个好办法，所以想了树形DP的解法。某点的最长距离，很容易想到是到其子树最长距离+该点为根时另外子树最远距离。&lt;/p&gt;
-&lt;p&gt;所以设 $dp[i][j],1\leq i\leq n,j=0,1$ , j 的值表示上述两种子树的状态。&lt;/p&gt;
-&lt;p&gt;原子树深度由常规的dfs就可以求出，借下来考虑如何求另外部分。所指的另外部分，如下图，也就是该节点父结点及其另外部分，因而，该点的 $dp[2][1]$可以由父结点更新。&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="题解" scheme="http://yoursite.com/categories/%E9%A2%98%E8%A7%A3/"/>
-    
-    
-      <category term="DP" scheme="http://yoursite.com/tags/DP/"/>
-    
-  </entry>
   
   <entry>
     <title>树形DP入门题</title>
