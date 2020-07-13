@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2020-07-11T10:20:17.593Z</updated>
+  <updated>2020-07-13T01:10:43.070Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>贝塔函数和伽马函数</title>
+    <link href="http://yoursite.com/2020/07/13/%E8%B4%9D%E5%A1%94%E5%87%BD%E6%95%B0%E5%92%8C%E4%BC%BD%E9%A9%AC%E5%87%BD%E6%95%B0/"/>
+    <id>http://yoursite.com/2020/07/13/%E8%B4%9D%E5%A1%94%E5%87%BD%E6%95%B0%E5%92%8C%E4%BC%BD%E9%A9%AC%E5%87%BD%E6%95%B0/</id>
+    <published>2020-07-13T00:36:18.000Z</published>
+    <updated>2020-07-13T01:10:43.070Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="题解" scheme="http://yoursite.com/categories/%E9%A2%98%E8%A7%A3/"/>
+    
+    
+      <category term="数学" scheme="http://yoursite.com/tags/%E6%95%B0%E5%AD%A6/"/>
+    
+  </entry>
   
   <entry>
     <title>树形DP-树上点最远距离</title>

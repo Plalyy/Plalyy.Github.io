@@ -328,4 +328,35 @@
         <category>随笔</category>
       </categories>
   </entry>
+  <entry>
+    <title>贝塔函数和伽马函数</title>
+    <url>/2020/07/13/%E8%B4%9D%E5%A1%94%E5%87%BD%E6%95%B0%E5%92%8C%E4%BC%BD%E9%A9%AC%E5%87%BD%E6%95%B0/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>牛客一的 J 题我们先是想组合数，后面自己推公式做的，积分都好久没碰了所以耽误了很久，看到大家都秒了太强啦。赛后听人说除了查OEIS外，还有个贝塔函数的东西，附带加个伽马函数，分别是欧拉第一、第二积分。</p>
+<ul>
+<li><h5 id="贝塔函数"><a href="#贝塔函数" class="headerlink" title="贝塔函数"></a>贝塔函数</h5><p>对于任意实数 $P,Q&gt;0$,  $B（a,b）=\int_0^1x^{a-1}*(1-x)^{b-1}dx$</p>
+<p>满足对称性:  $B(a,b)=B(b,a)$</p>
+<p>$a,b$ 同为自然数时， $B(a,b)=\frac{(a-1)!*(b-1)!}{(a+b-1)!}$</p>
+<p>$a,b$ 同为正整数时， $B(a,b)=\frac{a+b}{ab C_{a+b}^{a}} =\frac{1}{bC_{a+b-1}^{a-1} }$</p>
+</li>
+<li><h5 id="伽马函数"><a href="#伽马函数" class="headerlink" title="伽马函数"></a>伽马函数</h5><p>实数域 $α&gt;0$ , $Γ(α)=\int_0^{+∞}x^{α-1}e^{-x}dx$ ，另一种写法  $Γ(x)=2\int_0^{+∞}t^{2x-1}e^{-t^2}dt$</p>
+<p>对于 $x∈(0,1)$ , $Γ(1-x)Γ(x)=\frac{Π}{sin{Πx}}$</p>
+<p>$Γ(α+1)=αΓ(α)$  ,  $Γ(1)=1$  ,  $Γ(\frac{1}{2})=\sqrtΠ$   ,  $Γ(n+1)=n!$</p>
+<img src="/2020/07/13/%E8%B4%9D%E5%A1%94%E5%87%BD%E6%95%B0%E5%92%8C%E4%BC%BD%E9%A9%AC%E5%87%BD%E6%95%B0/1.png" style="zoom: 67%;">
+</li>
+<li><h5 id="两者联系"><a href="#两者联系" class="headerlink" title="两者联系"></a>两者联系</h5><p>$B(a,b)=\frac{Γ(a)Γ(b)}{Γ(a+b)}$   $a+b=1$时，即 $B(a,1-a)=Γ(a)Γ(1-a)$</p>
+</li>
+<li><h5 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h5><p>之后找些类似的典型题目做一下</p>
+<p>昨天的 J 题  $\int_0^1(x-x^2)^ndx=\int_0^1x^n(1-x)^ndx$ </p>
+<p>由贝塔函数： $B（a,b）=\int_0^1x^{a-1}<em>(1-x)^{b-1}dx$ ,$B(a,b)=\frac{(a-1)!</em>(b-1)!}{(a+b-1)!}$</p>
+<p>可知 $a-1=n,b-1=n$ ，则公式为 $I = \frac{(n!)^2}{(2n-1)!}$</p>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>题解</category>
+      </categories>
+      <tags>
+        <tag>数学</tag>
+      </tags>
+  </entry>
 </search>
