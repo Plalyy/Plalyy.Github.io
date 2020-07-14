@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2020-07-13T01:10:43.070Z</updated>
+  <updated>2020-07-14T03:19:20.475Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -17,21 +17,48 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>对偶图-狼抓兔子</title>
+    <link href="http://yoursite.com/2020/07/14/%E5%AF%B9%E5%81%B6%E5%9B%BE-%E7%8B%BC%E6%8A%93%E5%85%94%E5%AD%90/"/>
+    <id>http://yoursite.com/2020/07/14/%E5%AF%B9%E5%81%B6%E5%9B%BE-%E7%8B%BC%E6%8A%93%E5%85%94%E5%AD%90/</id>
+    <published>2020-07-14T02:47:58.000Z</published>
+    <updated>2020-07-14T03:19:20.475Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h5 id=&quot;最小割-对偶图最短路&quot;&gt;&lt;a href=&quot;#最小割-对偶图最短路&quot; class=&quot;headerlink&quot; title=&quot;最小割=对偶图最短路&quot;&gt;&lt;/a&gt;最小割=对偶图最短路&lt;/h5&gt;&lt;p&gt;处理最小割问题时，考虑到时限，可以转为对偶图做&lt;/p&gt;
+&lt;p&gt;来道例题 &lt;a href=&quot;https://www.luogu.com.cn/problem/P4001&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;狼抓兔子&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;题意：封锁一条边的花费等于流量，问最小花费使得左上角无法到达右下角&lt;/p&gt;
+&lt;img src=&quot;/2020/07/14/%E5%AF%B9%E5%81%B6%E5%9B%BE-%E7%8B%BC%E6%8A%93%E5%85%94%E5%AD%90/1.png&quot;&gt;
+    
+    </summary>
+    
+    
+      <category term="题解" scheme="http://yoursite.com/categories/%E9%A2%98%E8%A7%A3/"/>
+    
+    
+      <category term="网络流" scheme="http://yoursite.com/tags/%E7%BD%91%E7%BB%9C%E6%B5%81/"/>
+    
+  </entry>
+  
+  <entry>
     <title>贝塔函数和伽马函数</title>
     <link href="http://yoursite.com/2020/07/13/%E8%B4%9D%E5%A1%94%E5%87%BD%E6%95%B0%E5%92%8C%E4%BC%BD%E9%A9%AC%E5%87%BD%E6%95%B0/"/>
     <id>http://yoursite.com/2020/07/13/%E8%B4%9D%E5%A1%94%E5%87%BD%E6%95%B0%E5%92%8C%E4%BC%BD%E9%A9%AC%E5%87%BD%E6%95%B0/</id>
     <published>2020-07-13T00:36:18.000Z</published>
-    <updated>2020-07-13T01:10:43.070Z</updated>
+    <updated>2020-07-14T03:19:36.641Z</updated>
     
     <summary type="html">
     
-      
-      
-        
-        
-          &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;
-        
-      
+      &lt;p&gt;牛客一的 J 题我们先是想组合数，后面自己推公式做的，积分都好久没碰了所以耽误了很久，看到大家都秒了太强啦。赛后听人说除了查OEIS外，还有个贝塔函数的东西，附带加个伽马函数，分别是欧拉第一、第二积分。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;h5 id=&quot;贝塔函数&quot;&gt;&lt;a href=&quot;#贝塔函数&quot; class=&quot;headerlink&quot; title=&quot;贝塔函数&quot;&gt;&lt;/a&gt;贝塔函数&lt;/h5&gt;&lt;p&gt;对于任意实数 $P,Q&amp;gt;0$,  $B（a,b）=\int_0^1x^{a-1}*(1-x)^{b-1}dx$&lt;/p&gt;
+&lt;p&gt;满足对称性:  $B(a,b)=B(b,a)$&lt;/p&gt;
+&lt;p&gt;$a,b$ 同为自然数时， $B(a,b)=\frac{(a-1)!*(b-1)!}{(a+b-1)!}$&lt;/p&gt;
+&lt;p&gt;$a,b$ 同为正整数时， $B(a,b)=\frac{a+b}{ab C_{a+b}^{a}} =\frac{1}{bC_{a+b-1}^{a-1} }$&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;h5 id=&quot;伽马函数&quot;&gt;&lt;a href=&quot;#伽马函数&quot; class=&quot;headerlink&quot; title=&quot;伽马函数&quot;&gt;&lt;/a&gt;伽马函数&lt;/h5&gt;&lt;p&gt;实数域 $α&amp;gt;0$ , $Γ(α)=\int_0^{+∞}x^{α-1}e^{-x}dx$ ，另一种写法  $Γ(x)=2\int_0^{+∞}t^{2x-1}e^{-t^2}dt$&lt;/p&gt;
+&lt;p&gt;对于 $x∈(0,1)$ , $Γ(1-x)Γ(x)=\frac{Π}{sin{Πx}}$&lt;/p&gt;
+&lt;p&gt;$Γ(α+1)=αΓ(α)$  ,  $Γ(1)=1$  ,  $Γ(\frac{1}{2})=\sqrtΠ$   ,  $Γ(n+1)=n!$&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;
     
     </summary>
     
