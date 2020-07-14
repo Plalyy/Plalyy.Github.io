@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2020-07-14T03:19:20.475Z</updated>
+  <updated>2020-07-14T08:49:59.159Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>对偶图-状态转移</title>
+    <link href="http://yoursite.com/2020/07/14/%E5%AF%B9%E5%81%B6%E5%9B%BE-%E7%8A%B6%E6%80%81%E8%BD%AC%E7%A7%BB/"/>
+    <id>http://yoursite.com/2020/07/14/%E5%AF%B9%E5%81%B6%E5%9B%BE-%E7%8A%B6%E6%80%81%E8%BD%AC%E7%A7%BB/</id>
+    <published>2020-07-14T08:42:03.000Z</published>
+    <updated>2020-07-14T08:49:59.159Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;牛客多校第二场的网络流，比赛时都没关注这道题…….&lt;/p&gt;
+&lt;p&gt;简单看了对偶图的例子 狼抓兔子，然后来做这道题。一开始也是画来画去做对偶图，后来发现其实不用那么麻烦，针对原本的隔断方式进行连点更加简便。&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://ac.nowcoder.com/acm/contest/5667/I&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;I - Interval&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;题意：初始区间 $[1, n]$ ,给m个禁止规则，禁止左端点+1，或禁止右端点-1，每个禁止都有相应花费，问避免出现$L=R$ 情况出现的最小花费。&lt;/p&gt;
+&lt;p&gt;看成阻断两个状态转移，即求一下最小割，这道题把区间看成坐标，在网格图中对偶图最短路求最小割就很显然了。（事后诸葛&lt;/p&gt;
+&lt;p&gt;图上有 n*n个点，可以假设每个点都对应一个对偶图的点，这样在读取禁止规则后，可以直接根据规则所说的端点变化进行对偶图点的连边。而且预先处理越界的点分别对应起点、终点，加边的时候就不用分类讨论。&lt;/p&gt;
+&lt;p&gt;这道题每条边最大花费1e6，开ll吧，我小细节WA了好久。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="题解" scheme="http://yoursite.com/categories/%E9%A2%98%E8%A7%A3/"/>
+    
+    
+      <category term="网络流" scheme="http://yoursite.com/tags/%E7%BD%91%E7%BB%9C%E6%B5%81/"/>
+    
+  </entry>
   
   <entry>
     <title>对偶图-狼抓兔子</title>
