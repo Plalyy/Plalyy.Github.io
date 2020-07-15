@@ -80,6 +80,83 @@
     
     
     
+    <article id="post-最短路-k条路免费" class="article article-type-post" itemscope
+  itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2020/07/15/%E6%9C%80%E7%9F%AD%E8%B7%AF-k%E6%9D%A1%E8%B7%AF%E5%85%8D%E8%B4%B9/"
+    >最短路-k条路免费</a> 
+</h2>
+ 
+
+    </header>
+    
+
+    
+    <div class="article-meta">
+      <a href="/2020/07/15/%E6%9C%80%E7%9F%AD%E8%B7%AF-k%E6%9D%A1%E8%B7%AF%E5%85%8D%E8%B4%B9/" class="article-date">
+  <time datetime="2020-07-15T09:37:04.000Z" itemprop="datePublished">2020-07-15</time>
+</a>
+      
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E9%A2%98%E8%A7%A3/">题解</a>
+  </div>
+
+      
+      
+      
+    </div>
+    
+
+    
+
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+      
+
+      
+      <p>突然觉得想标题也是一个麻烦的事情，要不以后还是题目标题+概括方法吧。</p>
+<p><strong>题意</strong>：在1到N的路径上，可以指定将不超过K条边的权值设为0，总花费为剩下边中，权值最大边对应的值。</p>
+<p>分析：关于这道题，暂时想到了二分，二维保存状态，看了题解说可以分层图处理，不过这道题层数有点多，就先写下前两种做法，再换一道例题练练分层图。</p>
+<p>① 易知路径小于K条边，花费为0。大于K条边时，总花费即为第K+1大的边权值，目的是令最大值最小，可以想到二分花费，check函数就是检查路经中大于该花费的边数 $\leq K$ , 因为最优的其实并不一定为真正意义上的最短路，所以用BFS去检查，用一个 deque 来维护大于和小于该花费的结点，由于BFS是逐层（递增）的，因而对于小于的放前面，大于的放后面。</p>
+      
+      <a class="article-more-link" href="/2020/07/15/%E6%9C%80%E7%9F%AD%E8%B7%AF-k%E6%9D%A1%E8%B7%AF%E5%85%8D%E8%B4%B9/">阅读更多...</a>
+      
+      
+      <!-- reward -->
+      
+    </div>
+    
+    
+      <!-- copyright -->
+      
+    <footer class="article-footer">
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%9C%80%E7%9F%AD%E8%B7%AF/" rel="tag">最短路</a></li></ul>
+
+
+    </footer>
+
+  </div>
+
+  
+
+  
+  
+  
+
+  
+  
+  
+
+</article>
+    
     <article id="post-对偶图-状态转移" class="article article-type-post" itemscope
   itemprop="blogPost" data-scroll-reveal>
 
@@ -781,83 +858,6 @@
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2/" rel="tag">字符串</a></li></ul>
 
-
-    </footer>
-
-  </div>
-
-  
-
-  
-  
-  
-
-  
-  
-  
-
-</article>
-    
-    <article id="post-随便说说" class="article article-type-post" itemscope
-  itemprop="blogPost" data-scroll-reveal>
-
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2020/05/27/%E9%9A%8F%E4%BE%BF%E8%AF%B4%E8%AF%B4/"
-    >随便说说</a> 
-</h2>
- 
-
-    </header>
-    
-
-    
-    <div class="article-meta">
-      <a href="/2020/05/27/%E9%9A%8F%E4%BE%BF%E8%AF%B4%E8%AF%B4/" class="article-date">
-  <time datetime="2020-05-27T11:28:47.000Z" itemprop="datePublished">2020-05-27</time>
-</a>
-      
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E9%9A%8F%E7%AC%94/">随笔</a>
-  </div>
-
-      
-      
-      
-    </div>
-    
-
-    
-
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-      
-
-      
-      <blockquote>
-<p>UPD 5-31: 昨晚梦到在禁区前，用很难想到的熟练度勾回了球并借势踢了一脚，但还是绵软无力。其实可以跟上再补射的，但梦里我静止看着球的轨迹，它好歹是进了。球踢出去，其实还是自己的，有跟上的可能，你总是要跟的。前几天说的以下，部分是短暂的想法，这不，几天时间就又改了。好好努力，好好前进，还有又想回绿茵了。</p>
-</blockquote>
-<p><strong>最近有点崩，好像是全方面的。</strong></p>
-<p>春季学期，念着冬季的复习，吐槽着当前的课程，就这样一直拖到了现在。大概想想，就知道自己确确实实浪费了好多时间，做了很多无营养的事，计组一点都不会，离散数据结构靠灵感，概率论靠那么一点底子，英语没达到之前的初衷，炒股课也是水了过去，日本文学名篇也没沉下心看过几本书。</p>
-<p>随便说点想法吧。</p>
-      
-      <a class="article-more-link" href="/2020/05/27/%E9%9A%8F%E4%BE%BF%E8%AF%B4%E8%AF%B4/">阅读更多...</a>
-      
-      
-      <!-- reward -->
-      
-    </div>
-    
-    
-      <!-- copyright -->
-      
-    <footer class="article-footer">
-      
-      
 
     </footer>
 

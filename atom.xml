@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2020-07-14T08:49:59.159Z</updated>
+  <updated>2020-07-15T10:28:35.804Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>最短路-k条路免费</title>
+    <link href="http://yoursite.com/2020/07/15/%E6%9C%80%E7%9F%AD%E8%B7%AF-k%E6%9D%A1%E8%B7%AF%E5%85%8D%E8%B4%B9/"/>
+    <id>http://yoursite.com/2020/07/15/%E6%9C%80%E7%9F%AD%E8%B7%AF-k%E6%9D%A1%E8%B7%AF%E5%85%8D%E8%B4%B9/</id>
+    <published>2020-07-15T09:37:04.000Z</published>
+    <updated>2020-07-15T10:28:35.804Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;突然觉得想标题也是一个麻烦的事情，要不以后还是题目标题+概括方法吧。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;题意&lt;/strong&gt;：在1到N的路径上，可以指定将不超过K条边的权值设为0，总花费为剩下边中，权值最大边对应的值。&lt;/p&gt;
+&lt;p&gt;分析：关于这道题，暂时想到了二分，二维保存状态，看了题解说可以分层图处理，不过这道题层数有点多，就先写下前两种做法，再换一道例题练练分层图。&lt;/p&gt;
+&lt;p&gt;① 易知路径小于K条边，花费为0。大于K条边时，总花费即为第K+1大的边权值，目的是令最大值最小，可以想到二分花费，check函数就是检查路经中大于该花费的边数 $\leq K$ , 因为最优的其实并不一定为真正意义上的最短路，所以用BFS去检查，用一个 deque 来维护大于和小于该花费的结点，由于BFS是逐层（递增）的，因而对于小于的放前面，大于的放后面。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="题解" scheme="http://yoursite.com/categories/%E9%A2%98%E8%A7%A3/"/>
+    
+    
+      <category term="最短路" scheme="http://yoursite.com/tags/%E6%9C%80%E7%9F%AD%E8%B7%AF/"/>
+    
+  </entry>
   
   <entry>
     <title>对偶图-状态转移</title>
