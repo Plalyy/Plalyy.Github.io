@@ -462,7 +462,8 @@
 <p>$|d|=\frac{r_3}{2Π} \int_{0}^{2Π}|sinα-cosγ|dγ$   </p>
 <p>​      $=\frac{r_3}{Π}\int_0^{Π}|sinα-cosβ|dβ$</p>
 <p>​      $=\frac{r_3}{Π}(\int_{\frac{Π}{2}-α}^{Π}(sinα-cosβ)dβ+\int_{0}^{\frac{Π}{2}-α}(cosα-sinβ)dβ)$</p>
-<pre><code>$=\frac{2r_3}{Π}(αsinα+cosα)$</code></pre><img src="/2020/07/16/%E8%BE%9B%E6%99%AE%E6%A3%AE%E7%A7%AF%E5%88%86/2.png" style="zoom:50%;">
+<p>​      $=\frac{2r_3}Π（αsinα+cosα）$</p>
+<img src="/2020/07/16/%E8%BE%9B%E6%99%AE%E6%A3%AE%E7%A7%AF%E5%88%86/2.png" style="zoom:50%;">
 
 <p>$|d|=\frac{2r_3}{Π}(αsinα+cosα)$     $|AB|=\sqrt{(r_2sinβ)^2+(r_2cosβ-r_1)^2}$</p>
 <p>然后就是将 $α,β$ 建立起联系，计算。</p>
