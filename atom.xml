@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2020-07-16T05:19:28.066Z</updated>
+  <updated>2020-07-16T05:41:06.682Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -21,17 +21,23 @@
     <link href="http://yoursite.com/2020/07/16/%E8%BE%9B%E6%99%AE%E6%A3%AE%E7%A7%AF%E5%88%86/"/>
     <id>http://yoursite.com/2020/07/16/%E8%BE%9B%E6%99%AE%E6%A3%AE%E7%A7%AF%E5%88%86/</id>
     <published>2020-07-16T01:41:32.000Z</published>
-    <updated>2020-07-16T05:19:28.066Z</updated>
+    <updated>2020-07-16T05:41:06.682Z</updated>
     
     <summary type="html">
     
-      
-      
-        
-        
-          &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;
-        
-      
+      &lt;p&gt;牛客多校第二场的计算几何题&lt;/p&gt;
+&lt;h5 id=&quot;题意：&quot;&gt;&lt;a href=&quot;#题意：&quot; class=&quot;headerlink&quot; title=&quot;题意：&quot;&gt;&lt;/a&gt;题意：&lt;/h5&gt;&lt;p&gt;&lt;strong&gt;给定三个同心圆，不同圆上取一点，求三点构成三角形的期望面积。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;圆上求期望，得出相应的公式然后求积分，不过积分太复杂了，抄了一下辛普森积分，然后发现竟然可以枚举圆上1000个点做，太强了。先抄一下辛普森积分的使用吧。&lt;/p&gt;
+&lt;h5 id=&quot;辛普森公式：&quot;&gt;&lt;a href=&quot;#辛普森公式：&quot; class=&quot;headerlink&quot; title=&quot;辛普森公式：&quot;&gt;&lt;/a&gt;辛普森公式：&lt;/h5&gt;&lt;p&gt;&lt;strong&gt;将函数近似成二次函数&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;$\int_a^bf(x)dx\approx \int_a^b(Ax^2+Bx+C)dx$&lt;/p&gt;
+&lt;p&gt;$\int_a^bf(x)dx\approx \frac{(b-1)(f(a)+f(b)+4f(\frac{a+b}{2}))}{6}$&lt;/p&gt;
+&lt;p&gt;$b-a$ 的值越小，两式越接近&lt;/p&gt;
+&lt;h5 id=&quot;自适应辛普森：&quot;&gt;&lt;a href=&quot;#自适应辛普森：&quot; class=&quot;headerlink&quot; title=&quot;自适应辛普森：&quot;&gt;&lt;/a&gt;自适应辛普森：&lt;/h5&gt;&lt;p&gt;&lt;strong&gt;自动控制区间大小长度，把积分区间拆成多个小区间后求和&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;对于函数 $Simpson(L, R, Ans)$&lt;/p&gt;
+&lt;p&gt;先取 $mid=\frac{L+R}{2}$ ，使用上述辛普森公式近似计算左、右区间积分 $Ls$ 和 $Rs$ ，以及整个区间的积分 $S$&lt;/p&gt;
+&lt;p&gt;如果 $Ls+Rs$ 与 $S$ 的误差范围允许，则返回 $S$&lt;/p&gt;
+&lt;p&gt;否则返回递归 $Simpson(L,mid,Ls)+Simpson(mid,R,Rs)$&lt;/p&gt;
+&lt;p&gt;注意，误差范围 $eps$ 过小会导致超时。&lt;/p&gt;
     
     </summary>
     
