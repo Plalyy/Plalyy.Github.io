@@ -13,7 +13,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
   <title>
-     Plalyy
+    ACM Computer Factory 最大流输出路经 |  Plalyy
   </title>
   <meta name="generator" content="hexo-theme-ayer">
   
@@ -45,52 +45,17 @@
 <body>
   <div id="app">
     <main class="content on">
-      
-<section class="cover">
-    
-  <div class="cover-frame">
-    <div class="bg-box">
-      <img src="/images/cover1.jpg" alt="image frame" />
-    </div>
-    <div class="cover-inner text-center text-white">
-      <h1><a href="/">Plalyy</a></h1>
-      <div id="subtitle-box">
-        
-        <span id="subtitle"></span>
-        
-      </div>
-      <div>
-        
-      </div>
-    </div>
-  </div>
-  <div class="cover-learn-more">
-    <a href="javascript:void(0)" class="anchor"><i class="ri-arrow-down-line"></i></a>
-  </div>
-</section>
-
-
-
-<script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js"></script>
-
-<div id="main">
-  <section class="outer">
-  <article class="articles">
-    
-    
-    
-    
-    <article id="post-ACM" class="article article-type-post" itemscope
+      <section class="outer">
+  <article id="post-ACM" class="article article-type-post" itemscope
   itemprop="blogPost" data-scroll-reveal>
 
   <div class="article-inner">
     
     <header class="article-header">
        
-<h2 itemprop="name">
-  <a class="article-title" href="/2020/07/17/ACM/"
-    >ACM Computer Factory 最大流输出路经</a> 
-</h2>
+<h1 class="article-title sea-center" style="border-left:0" itemprop="name">
+  ACM Computer Factory 最大流输出路经
+</h1>
  
 
     </header>
@@ -108,9 +73,36 @@
 
       
       
+<div class="word_count">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="ri-quill-pen-line"></i>
+            <span class="post-meta-item-text"> Word count:</span>
+            <span class="post-count">1.1k</span>
+        </span>
+    </span>
+
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="ri-book-open-line"></i>
+            <span class="post-meta-item-text"> Reading time≈</span>
+            <span class="post-count">5 min</span>
+        </span>
+    </span>
+</div>
+
       
     </div>
     
+
+    
+    
+    <div class="tocbot"></div>
+
+
+
+
 
     
 
@@ -147,749 +139,82 @@
   </div>
 
   
-
   
-  
-  
-
-  
-  
-  
-
-</article>
-    
-    <article id="post-辛普森积分" class="article article-type-post" itemscope
-  itemprop="blogPost" data-scroll-reveal>
-
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2020/07/16/%E8%BE%9B%E6%99%AE%E6%A3%AE%E7%A7%AF%E5%88%86/"
-    >K-Keyboard Free辛普森积分</a> 
-</h2>
- 
-
-    </header>
-    
-
-    
-    <div class="article-meta">
-      <a href="/2020/07/16/%E8%BE%9B%E6%99%AE%E6%A3%AE%E7%A7%AF%E5%88%86/" class="article-date">
-  <time datetime="2020-07-16T01:41:32.000Z" itemprop="datePublished">2020-07-16</time>
-</a>
-      
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E9%A2%98%E8%A7%A3/">题解</a>
-  </div>
-
-      
-      
-      
-    </div>
-    
-
-    
-
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-      
-
-      
-      <p>牛客多校第二场的计算几何题</p>
-<h5 id="题意："><a href="#题意：" class="headerlink" title="题意："></a>题意：</h5><p><strong>给定三个同心圆，不同圆上取一点，求三点构成三角形的期望面积。</strong></p>
-<p>圆上求期望，得出相应的公式然后求积分，不过积分太复杂了，抄了一下辛普森积分，然后发现竟然可以枚举圆上1000个点做，太强了。先抄一下辛普森积分的使用吧。</p>
-<h5 id="辛普森公式："><a href="#辛普森公式：" class="headerlink" title="辛普森公式："></a>辛普森公式：</h5><p><strong>将函数近似成二次函数</strong></p>
-<p>$\int_a^bf(x)dx\approx \int_a^b(Ax^2+Bx+C)dx$</p>
-<p>$\int_a^bf(x)dx\approx \frac{(b-1)(f(a)+f(b)+4f(\frac{a+b}{2}))}{6}$</p>
-<p>$b-a$ 的值越小，两式越接近</p>
-<h5 id="自适应辛普森："><a href="#自适应辛普森：" class="headerlink" title="自适应辛普森："></a>自适应辛普森：</h5><p><strong>自动控制区间大小长度，把积分区间拆成多个小区间后求和</strong></p>
-<p>对于函数 $Simpson(L, R, Ans)$</p>
-<p>先取 $mid=\frac{L+R}{2}$ ，使用上述辛普森公式近似计算左、右区间积分 $Ls$ 和 $Rs$ ，以及整个区间的积分 $S$</p>
-<p>如果 $Ls+Rs$ 与 $S$ 的误差范围允许，则返回 $S$</p>
-<p>否则返回递归 $Simpson(L,mid,Ls)+Simpson(mid,R,Rs)$</p>
-<p>注意，误差范围 $eps$ 过小会导致超时。</p>
-      
-      <a class="article-more-link" href="/2020/07/16/%E8%BE%9B%E6%99%AE%E6%A3%AE%E7%A7%AF%E5%88%86/">阅读更多...</a>
-      
-      
-      <!-- reward -->
-      
-    </div>
-    
-    
-      <!-- copyright -->
-      
-    <footer class="article-footer">
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%AE%A1%E7%AE%97%E5%87%A0%E4%BD%95/" rel="tag">计算几何</a></li></ul>
-
-
-    </footer>
-
-  </div>
-
-  
-
-  
-  
-  
-
-  
-  
-  
-
-</article>
-    
-    <article id="post-最短路-k条路免费" class="article article-type-post" itemscope
-  itemprop="blogPost" data-scroll-reveal>
-
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2020/07/15/%E6%9C%80%E7%9F%AD%E8%B7%AF-k%E6%9D%A1%E8%B7%AF%E5%85%8D%E8%B4%B9/"
-    >最短路-k条路免费</a> 
-</h2>
- 
-
-    </header>
-    
-
-    
-    <div class="article-meta">
-      <a href="/2020/07/15/%E6%9C%80%E7%9F%AD%E8%B7%AF-k%E6%9D%A1%E8%B7%AF%E5%85%8D%E8%B4%B9/" class="article-date">
-  <time datetime="2020-07-15T09:37:04.000Z" itemprop="datePublished">2020-07-15</time>
-</a>
-      
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E9%A2%98%E8%A7%A3/">题解</a>
-  </div>
-
-      
-      
-      
-    </div>
-    
-
-    
-
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-      
-
-      
-      <p>突然觉得想标题也是一个麻烦的事情，要不以后还是题目标题+概括方法吧。</p>
-<p><strong>题意</strong>：在1到N的路径上，可以指定将不超过K条边的权值设为0，总花费为剩下边中，权值最大边对应的值。</p>
-<p>分析：关于这道题，暂时想到了二分，二维保存状态，看了题解说可以分层图处理，不过这道题层数有点多，就先写下前两种做法，再换一道例题练练分层图。</p>
-<p>① 易知路径小于K条边，花费为0。大于K条边时，总花费即为第K+1大的边权值，目的是令最大值最小，可以想到二分花费，check函数就是检查路经中大于该花费的边数 $\leq K$ , 因为最优的其实并不一定为真正意义上的最短路，所以用BFS去检查，用一个 deque 来维护大于和小于该花费的结点，由于BFS是逐层（递增）的，因而对于小于的放前面，大于的放后面。</p>
-      
-      <a class="article-more-link" href="/2020/07/15/%E6%9C%80%E7%9F%AD%E8%B7%AF-k%E6%9D%A1%E8%B7%AF%E5%85%8D%E8%B4%B9/">阅读更多...</a>
-      
-      
-      <!-- reward -->
-      
-    </div>
-    
-    
-      <!-- copyright -->
-      
-    <footer class="article-footer">
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%9C%80%E7%9F%AD%E8%B7%AF/" rel="tag">最短路</a></li></ul>
-
-
-    </footer>
-
-  </div>
-
-  
-
-  
-  
-  
-
-  
-  
-  
-
-</article>
-    
-    <article id="post-对偶图-状态转移" class="article article-type-post" itemscope
-  itemprop="blogPost" data-scroll-reveal>
-
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2020/07/14/%E5%AF%B9%E5%81%B6%E5%9B%BE-%E7%8A%B6%E6%80%81%E8%BD%AC%E7%A7%BB/"
-    >对偶图-状态转移</a> 
-</h2>
- 
-
-    </header>
-    
-
-    
-    <div class="article-meta">
-      <a href="/2020/07/14/%E5%AF%B9%E5%81%B6%E5%9B%BE-%E7%8A%B6%E6%80%81%E8%BD%AC%E7%A7%BB/" class="article-date">
-  <time datetime="2020-07-14T08:42:03.000Z" itemprop="datePublished">2020-07-14</time>
-</a>
-      
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E9%A2%98%E8%A7%A3/">题解</a>
-  </div>
-
-      
-      
-      
-    </div>
-    
-
-    
-
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-      
-
-      
-      <p>牛客多校第二场的网络流，比赛时都没关注这道题…….</p>
-<p>简单看了对偶图的例子 狼抓兔子，然后来做这道题。一开始也是画来画去做对偶图，后来发现其实不用那么麻烦，针对原本的隔断方式进行连点更加简便。</p>
-<p><a href="https://ac.nowcoder.com/acm/contest/5667/I" target="_blank" rel="noopener">I - Interval</a></p>
-<p>题意：初始区间 $[1, n]$ ,给m个禁止规则，禁止左端点+1，或禁止右端点-1，每个禁止都有相应花费，问避免出现$L=R$ 情况出现的最小花费。</p>
-<p>看成阻断两个状态转移，即求一下最小割，这道题把区间看成坐标，在网格图中对偶图最短路求最小割就很显然了。（事后诸葛</p>
-<p>图上有 n*n个点，可以假设每个点都对应一个对偶图的点，这样在读取禁止规则后，可以直接根据规则所说的端点变化进行对偶图点的连边。而且预先处理越界的点分别对应起点、终点，加边的时候就不用分类讨论。</p>
-<p>这道题每条边最大花费1e6，开ll吧，我小细节WA了好久。</p>
-      
-      <a class="article-more-link" href="/2020/07/14/%E5%AF%B9%E5%81%B6%E5%9B%BE-%E7%8A%B6%E6%80%81%E8%BD%AC%E7%A7%BB/">阅读更多...</a>
-      
-      
-      <!-- reward -->
-      
-    </div>
-    
-    
-      <!-- copyright -->
-      
-    <footer class="article-footer">
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%BD%91%E7%BB%9C%E6%B5%81/" rel="tag">网络流</a></li></ul>
-
-
-    </footer>
-
-  </div>
-
-  
-
-  
-  
-  
-
-  
-  
-  
-
-</article>
-    
-    <article id="post-对偶图-狼抓兔子" class="article article-type-post" itemscope
-  itemprop="blogPost" data-scroll-reveal>
-
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2020/07/14/%E5%AF%B9%E5%81%B6%E5%9B%BE-%E7%8B%BC%E6%8A%93%E5%85%94%E5%AD%90/"
-    >对偶图-狼抓兔子</a> 
-</h2>
- 
-
-    </header>
-    
-
-    
-    <div class="article-meta">
-      <a href="/2020/07/14/%E5%AF%B9%E5%81%B6%E5%9B%BE-%E7%8B%BC%E6%8A%93%E5%85%94%E5%AD%90/" class="article-date">
-  <time datetime="2020-07-14T02:47:58.000Z" itemprop="datePublished">2020-07-14</time>
-</a>
-      
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E9%A2%98%E8%A7%A3/">题解</a>
-  </div>
-
-      
-      
-      
-    </div>
-    
-
-    
-
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-      
-
-      
-      <h5 id="最小割-对偶图最短路"><a href="#最小割-对偶图最短路" class="headerlink" title="最小割=对偶图最短路"></a>最小割=对偶图最短路</h5><p>处理最小割问题时，考虑到时限，可以转为对偶图做</p>
-<p>来道例题 <a href="https://www.luogu.com.cn/problem/P4001" target="_blank" rel="noopener">狼抓兔子</a></p>
-<p>题意：封锁一条边的花费等于流量，问最小花费使得左上角无法到达右下角</p>
-<img src="/2020/07/14/%E5%AF%B9%E5%81%B6%E5%9B%BE-%E7%8B%BC%E6%8A%93%E5%85%94%E5%AD%90/1.png">
-      
-      <a class="article-more-link" href="/2020/07/14/%E5%AF%B9%E5%81%B6%E5%9B%BE-%E7%8B%BC%E6%8A%93%E5%85%94%E5%AD%90/">阅读更多...</a>
-      
-      
-      <!-- reward -->
-      
-    </div>
-    
-    
-      <!-- copyright -->
-      
-    <footer class="article-footer">
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%BD%91%E7%BB%9C%E6%B5%81/" rel="tag">网络流</a></li></ul>
-
-
-    </footer>
-
-  </div>
-
-  
-
-  
-  
-  
-
-  
-  
-  
-
-</article>
-    
-    <article id="post-贝塔函数和伽马函数" class="article article-type-post" itemscope
-  itemprop="blogPost" data-scroll-reveal>
-
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2020/07/13/%E8%B4%9D%E5%A1%94%E5%87%BD%E6%95%B0%E5%92%8C%E4%BC%BD%E9%A9%AC%E5%87%BD%E6%95%B0/"
-    >贝塔函数和伽马函数</a> 
-</h2>
- 
-
-    </header>
-    
-
-    
-    <div class="article-meta">
-      <a href="/2020/07/13/%E8%B4%9D%E5%A1%94%E5%87%BD%E6%95%B0%E5%92%8C%E4%BC%BD%E9%A9%AC%E5%87%BD%E6%95%B0/" class="article-date">
-  <time datetime="2020-07-13T00:36:18.000Z" itemprop="datePublished">2020-07-13</time>
-</a>
-      
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E9%A2%98%E8%A7%A3/">题解</a>
-  </div>
-
-      
-      
-      
-    </div>
-    
-
-    
-
+  <nav class="article-nav">
     
-    <div class="article-entry" itemprop="articleBody">
-      
-      
-
-      
-      <p>牛客一的 J 题我们先是想组合数，后面自己推公式做的，积分都好久没碰了所以耽误了很久，看到大家都秒了太强啦。赛后听人说除了查OEIS外，还有个贝塔函数的东西，附带加个伽马函数，分别是欧拉第一、第二积分。</p>
-<ul>
-<li><h5 id="贝塔函数"><a href="#贝塔函数" class="headerlink" title="贝塔函数"></a>贝塔函数</h5><p>对于任意实数 $P,Q&gt;0$,  $B（a,b）=\int_0^1x^{a-1}*(1-x)^{b-1}dx$</p>
-<p>满足对称性:  $B(a,b)=B(b,a)$</p>
-<p>$a,b$ 同为自然数时， $B(a,b)=\frac{(a-1)!*(b-1)!}{(a+b-1)!}$</p>
-<p>$a,b$ 同为正整数时， $B(a,b)=\frac{a+b}{ab C_{a+b}^{a}} =\frac{1}{bC_{a+b-1}^{a-1} }$</p>
-</li>
-<li><h5 id="伽马函数"><a href="#伽马函数" class="headerlink" title="伽马函数"></a>伽马函数</h5><p>实数域 $α&gt;0$ , $Γ(α)=\int_0^{+∞}x^{α-1}e^{-x}dx$ ，另一种写法  $Γ(x)=2\int_0^{+∞}t^{2x-1}e^{-t^2}dt$</p>
-<p>对于 $x∈(0,1)$ , $Γ(1-x)Γ(x)=\frac{Π}{sin{Πx}}$</p>
-<p>$Γ(α+1)=αΓ(α)$  ,  $Γ(1)=1$  ,  $Γ(\frac{1}{2})=\sqrtΠ$   ,  $Γ(n+1)=n!$</p></li></ul>
-      
-      <a class="article-more-link" href="/2020/07/13/%E8%B4%9D%E5%A1%94%E5%87%BD%E6%95%B0%E5%92%8C%E4%BC%BD%E9%A9%AC%E5%87%BD%E6%95%B0/">阅读更多...</a>
-      
-      
-      <!-- reward -->
-      
-    </div>
     
-    
-      <!-- copyright -->
-      
-    <footer class="article-footer">
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%95%B0%E5%AD%A6/" rel="tag">数学</a></li></ul>
-
-
-    </footer>
-
-  </div>
-
-  
-
-  
-  
-  
-
-  
-  
-  
-
-</article>
-    
-    <article id="post-树形DP-树上点最远距离" class="article article-type-post" itemscope
-  itemprop="blogPost" data-scroll-reveal>
-
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2020/07/11/%E6%A0%91%E5%BD%A2DP-%E6%A0%91%E4%B8%8A%E7%82%B9%E6%9C%80%E8%BF%9C%E8%B7%9D%E7%A6%BB/"
-    >树形DP-树上点最远距离</a> 
-</h2>
- 
-
-    </header>
-    
-
-    
-    <div class="article-meta">
-      <a href="/2020/07/11/%E6%A0%91%E5%BD%A2DP-%E6%A0%91%E4%B8%8A%E7%82%B9%E6%9C%80%E8%BF%9C%E8%B7%9D%E7%A6%BB/" class="article-date">
-  <time datetime="2020-07-11T09:11:18.000Z" itemprop="datePublished">2020-07-11</time>
-</a>
-      
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E9%A2%98%E8%A7%A3/">题解</a>
-  </div>
-
-      
-      
-      
-    </div>
-    
-
-    
-
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-      
-
-      
-      <p>仍然在往门里钻 , 写题解是希望重新审视一下细节，可能有亿点点乱。</p>
-<ul>
-<li><h4 id="POJ-2196-Computer"><a href="#POJ-2196-Computer" class="headerlink" title="POJ 2196 Computer"></a>POJ 2196 Computer</h4></li>
-</ul>
-<p>题意：一棵树，对于每个结点求出其他点与它最远的距离。</p>
-<p>之前做最远距离时，利用的是树的直径，这次看到该题，发现树形DP也不失为一个好办法，所以想了树形DP的解法。某点的最长距离，很容易想到是到其子树最长距离+该点为根时另外子树最远距离。</p>
-<p>所以设 $dp[i][j],1\leq i\leq n,j=0,1$ , j 的值表示上述两种子树的状态。</p>
-<p>原子树深度由常规的dfs就可以求出，借下来考虑如何求另外部分。所指的另外部分，如下图，也就是该节点父结点及其另外部分，因而，该点的 $dp[2][1]$可以由父结点更新。</p>
-      
-      <a class="article-more-link" href="/2020/07/11/%E6%A0%91%E5%BD%A2DP-%E6%A0%91%E4%B8%8A%E7%82%B9%E6%9C%80%E8%BF%9C%E8%B7%9D%E7%A6%BB/">阅读更多...</a>
-      
-      
-      <!-- reward -->
-      
-    </div>
-    
-    
-      <!-- copyright -->
-      
-    <footer class="article-footer">
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DP/" rel="tag">DP</a></li></ul>
-
-
-    </footer>
-
-  </div>
-
-  
-
-  
-  
-  
-
-  
-  
-  
-
-</article>
-    
-    <article id="post-树形DP入门题" class="article article-type-post" itemscope
-  itemprop="blogPost" data-scroll-reveal>
-
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2020/07/11/%E6%A0%91%E5%BD%A2DP%E5%85%A5%E9%97%A8%E9%A2%98/"
-    >树形DP入门题</a> 
-</h2>
- 
-
-    </header>
-    
-
-    
-    <div class="article-meta">
-      <a href="/2020/07/11/%E6%A0%91%E5%BD%A2DP%E5%85%A5%E9%97%A8%E9%A2%98/" class="article-date">
-  <time datetime="2020-07-11T02:13:00.000Z" itemprop="datePublished">2020-07-11</time>
-</a>
-      
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E9%A2%98%E8%A7%A3/">题解</a>
-  </div>
-
-      
-      
-      
-    </div>
-    
-
-    
-
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-      
-
-      
-      <p>之前遇到的树形DP，做的都不清楚，重新入下门，希望成功。</p>
-<p>挑几道例题入门，太过类似的就算了</p>
-<ul>
-<li><h4 id="POJ-2342-没有上司的舞会"><a href="#POJ-2342-没有上司的舞会" class="headerlink" title="POJ 2342 没有上司的舞会"></a>POJ 2342 没有上司的舞会</h4><p>题意：公司成员参加舞会，每人都有一个快乐值，成员和直属上司不能同时参加，问如何使得快乐值最大。</p>
-<p>显然$dp[i][j]$表示成员 $i$子树(参加与否)达到的最大值。</p>
-<p>$dp[i][0]=\sum max(dp[j][1],dp[j][0])$, j 为子成员</p>
-<p>$dp[i][1]=\sum dp[j][0]$, j 为子成员</p>
-<p>从根节点开始。</p></li></ul>
-      
-      <a class="article-more-link" href="/2020/07/11/%E6%A0%91%E5%BD%A2DP%E5%85%A5%E9%97%A8%E9%A2%98/">阅读更多...</a>
-      
-      
-      <!-- reward -->
-      
-    </div>
-    
-    
-      <!-- copyright -->
-      
-    <footer class="article-footer">
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DP/" rel="tag">DP</a></li></ul>
-
-
-    </footer>
-
-  </div>
-
-  
-
-  
-  
-  
-
-  
-  
-  
-
-</article>
-    
-    <article id="post-异或前缀和" class="article article-type-post" itemscope
-  itemprop="blogPost" data-scroll-reveal>
-
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2020/07/11/%E5%BC%82%E6%88%96%E5%89%8D%E7%BC%80%E5%92%8C/"
-    >异或前缀和</a> 
-</h2>
- 
-
-    </header>
-    
-
-    
-    <div class="article-meta">
-      <a href="/2020/07/11/%E5%BC%82%E6%88%96%E5%89%8D%E7%BC%80%E5%92%8C/" class="article-date">
-  <time datetime="2020-07-11T01:19:10.000Z" itemprop="datePublished">2020-07-11</time>
-</a>
-      
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E9%A2%98%E8%A7%A3/">题解</a>
-  </div>
-
-      
-      
-      
-    </div>
-    
-
-    
-
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-      
-
-      
-      <p>之后更新部分异或/前缀和的题目。</p>
-<ul>
-<li><h4 id="小AA的数列"><a href="#小AA的数列" class="headerlink" title="小AA的数列"></a>小AA的数列</h4></li>
-</ul>
-<p>题意：求数列所有长度为偶数且在$[L,R]$之间的区间异或和之和</p>
-<p>显然是异或前缀，按位算贡献，问题是如何处理偶数长度和区间限制。然后开始找规律，首先$sum[R-L]=sum[R]\bigoplus sum[L-1]$，针对二进制每位，当前位值为1时，要找此前位为0的数，为0时同理，这样才能产生贡献。所以针对位值，有一个取反的规律，而针对下标，同奇同偶。所以考虑针对每一个右端点，记录此前产生的贡献，并更新贡献。</p>
-      
-      <a class="article-more-link" href="/2020/07/11/%E5%BC%82%E6%88%96%E5%89%8D%E7%BC%80%E5%92%8C/">阅读更多...</a>
-      
-      
-      <!-- reward -->
-      
-    </div>
-    
-    
-      <!-- copyright -->
-      
-    <footer class="article-footer">
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%89%8D%E7%BC%80%E5%92%8C/" rel="tag">前缀和</a></li></ul>
-
-
-    </footer>
-
-  </div>
-
-  
-
-  
-  
-  
-
-  
-  
-  
-
-</article>
-    
-    <article id="post-删数求前缀-奇怪的名字" class="article article-type-post" itemscope
-  itemprop="blogPost" data-scroll-reveal>
-
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2020/07/09/%E5%88%A0%E6%95%B0%E6%B1%82%E5%89%8D%E7%BC%80-%E5%A5%87%E6%80%AA%E7%9A%84%E5%90%8D%E5%AD%97/"
-    >删数求前缀-奇怪的名字</a> 
-</h2>
- 
-
-    </header>
-    
-
-    
-    <div class="article-meta">
-      <a href="/2020/07/09/%E5%88%A0%E6%95%B0%E6%B1%82%E5%89%8D%E7%BC%80-%E5%A5%87%E6%80%AA%E7%9A%84%E5%90%8D%E5%AD%97/" class="article-date">
-  <time datetime="2020-07-08T16:25:23.000Z" itemprop="datePublished">2020-07-09</time>
-</a>
-      
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E9%A2%98%E8%A7%A3/">题解</a>
-  </div>
-
-      
-      
-      
-    </div>
-    
-
-    
-
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-      
-
-      
-      <p><a href="https://vjudge.net/contest/381578#problem/G" target="_blank" rel="noopener">HDU2019多校第三场 G - Find the answer</a></p>
-<p>题意：给定长为n的序列以及整数m，对于位置 i ，可以令 k (k &lt; i)位置的数变为0，使得这段前缀和小于等于m，求每个位置的最小改变数。</p>
-<p>分析：求最小改变数，也就是尽可能多使用原数，搞一个multiset和一个sum，处理一下进出元素。multiset存可以使用的元素，sum为堆中元素贡献。假如sum+a[i]&lt;=m，插入元素，否则从堆里开始假删除（后面每次是独立的，不能影响后续），当满足合法后若a[i]&lt;max，那么将两个元素互换，很显然次数不变的情况下sum越小越好。同理，用线段树维护子集也可以。</p>
-<p>必须要有n个空格+换行！不然PE</p>
-<p>CF #568 Div.2小数据题  <a href="https://codeforces.com/contest/1185/problem/C2" target="_blank" rel="noopener">C2. Exam in BerSU (hard version)</a></p>
-      
-      <a class="article-more-link" href="/2020/07/09/%E5%88%A0%E6%95%B0%E6%B1%82%E5%89%8D%E7%BC%80-%E5%A5%87%E6%80%AA%E7%9A%84%E5%90%8D%E5%AD%97/">阅读更多...</a>
-      
-      
-      <!-- reward -->
-      
-    </div>
-    
-    
-      <!-- copyright -->
-      
-    <footer class="article-footer">
-      
-      
-
-    </footer>
-
-  </div>
-
-  
-
-  
-  
-  
-
-  
-  
-  
-
-</article>
-    
-  </article>
-  
-
-  
-  <nav class="page-nav">
+      <a href="/2020/07/16/%E8%BE%9B%E6%99%AE%E6%A3%AE%E7%A7%AF%E5%88%86/" class="article-nav-link">
+        <strong class="article-nav-caption">下一篇</strong>
+        <div class="article-nav-title">K-Keyboard Free辛普森积分</div>
+      </a>
     
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">下一页</a>
   </nav>
-  
-</section>
-</div>
 
+
+  
+
+  
+  
+<!-- valine评论 -->
+<div id="vcomments-box">
+    <div id="vcomments">
+    </div>
+</div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src='https://cdn.jsdelivr.net/npm/valine@1.3.10/dist/Valine.min.js'></script>
+<script>
+    new Valine({
+        el: '#vcomments',
+        app_id: 'gAK7nFcQ6jk0P8if7uirveN4-gzGzoHsz',
+        app_key: 'OwPBP8DlVQEVh2mwynlGazoX',
+        path: window.location.pathname,
+        notify: 'false',
+        verify: 'false',
+        avatar: 'mp',
+        placeholder: '给我的文章加点评论吧~',
+        recordIP: true
+    });
+    const infoEle = document.querySelector('#vcomments .info');
+    if (infoEle && infoEle.childNodes && infoEle.childNodes.length > 0) {
+        infoEle.childNodes.forEach(function (item) {
+            item.parentNode.removeChild(item);
+        });
+    }
+</script>
+<style>
+    #vcomments-box {
+        padding: 5px 30px;
+    }
+
+    @media screen and (max-width: 800px) {
+        #vcomments-box {
+            padding: 5px 0px;
+        }
+    }
+
+    #vcomments-box #vcomments {
+        background-color: #fff;
+    }
+
+    .v .vlist .vcard .vh {
+        padding-right: 20px;
+    }
+
+    .v .vlist .vcard {
+        padding-left: 10px;
+    }
+</style>
+
+  
+
+  
+  
+  
+  
+  
+
+</article>
+</section>
       <footer class="footer">
   <div class="outer">
     <ul>
