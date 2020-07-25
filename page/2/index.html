@@ -80,6 +80,82 @@
     
     
     
+    <article id="post-删数求前缀-奇怪的名字" class="article article-type-post" itemscope
+  itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2020/07/09/%E5%88%A0%E6%95%B0%E6%B1%82%E5%89%8D%E7%BC%80-%E5%A5%87%E6%80%AA%E7%9A%84%E5%90%8D%E5%AD%97/"
+    >删数求前缀-奇怪的名字</a> 
+</h2>
+ 
+
+    </header>
+    
+
+    
+    <div class="article-meta">
+      <a href="/2020/07/09/%E5%88%A0%E6%95%B0%E6%B1%82%E5%89%8D%E7%BC%80-%E5%A5%87%E6%80%AA%E7%9A%84%E5%90%8D%E5%AD%97/" class="article-date">
+  <time datetime="2020-07-08T16:25:23.000Z" itemprop="datePublished">2020-07-09</time>
+</a>
+      
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E9%A2%98%E8%A7%A3/">题解</a>
+  </div>
+
+      
+      
+      
+    </div>
+    
+
+    
+
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+      
+
+      
+      <p><a href="https://vjudge.net/contest/381578#problem/G" target="_blank" rel="noopener">HDU2019多校第三场 G - Find the answer</a></p>
+<p>题意：给定长为n的序列以及整数m，对于位置 i ，可以令 k (k &lt; i)位置的数变为0，使得这段前缀和小于等于m，求每个位置的最小改变数。</p>
+<p>分析：求最小改变数，也就是尽可能多使用原数，搞一个multiset和一个sum，处理一下进出元素。multiset存可以使用的元素，sum为堆中元素贡献。假如sum+a[i]&lt;=m，插入元素，否则从堆里开始假删除（后面每次是独立的，不能影响后续），当满足合法后若a[i]&lt;max，那么将两个元素互换，很显然次数不变的情况下sum越小越好。同理，用线段树维护子集也可以。</p>
+<p>必须要有n个空格+换行！不然PE</p>
+<p>CF #568 Div.2小数据题  <a href="https://codeforces.com/contest/1185/problem/C2" target="_blank" rel="noopener">C2. Exam in BerSU (hard version)</a></p>
+      
+      <a class="article-more-link" href="/2020/07/09/%E5%88%A0%E6%95%B0%E6%B1%82%E5%89%8D%E7%BC%80-%E5%A5%87%E6%80%AA%E7%9A%84%E5%90%8D%E5%AD%97/">阅读更多...</a>
+      
+      
+      <!-- reward -->
+      
+    </div>
+    
+    
+      <!-- copyright -->
+      
+    <footer class="article-footer">
+      
+      
+
+    </footer>
+
+  </div>
+
+  
+
+  
+  
+  
+
+  
+  
+  
+
+</article>
+    
     <article id="post-XIU-微信小程序" class="article article-type-post" itemscope
   itemprop="blogPost" data-scroll-reveal>
 
