@@ -80,6 +80,172 @@
     
     
     
+    <article id="post-Go running二分图匹配（最大流" class="article article-type-post" itemscope
+  itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2020/07/30/Go%20running%E4%BA%8C%E5%88%86%E5%9B%BE%E5%8C%B9%E9%85%8D%EF%BC%88%E6%9C%80%E5%A4%A7%E6%B5%81/"
+    >Go running 二分图匹配（最大流</a> 
+</h2>
+ 
+
+    </header>
+    
+
+    
+    <div class="article-meta">
+      <a href="/2020/07/30/Go%20running%E4%BA%8C%E5%88%86%E5%9B%BE%E5%8C%B9%E9%85%8D%EF%BC%88%E6%9C%80%E5%A4%A7%E6%B5%81/" class="article-date">
+  <time datetime="2020-07-30T12:30:49.000Z" itemprop="datePublished">2020-07-30</time>
+</a>
+      
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E9%A2%98%E8%A7%A3/">题解</a>
+  </div>
+
+      
+      
+      
+    </div>
+    
+
+    
+
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+      
+
+      
+      <p>题意：每个人从开始运动时起，选择左或者右方向每秒前进1m，现给出n个监控，表示在某时间某位置有人运动，问最少多少人运动。</p>
+<p>按时间和位置建立坐标系，人的运动被表示成斜率为 1 或 -1 的直线，而监控点则说明该点有直线经过，所以问题就转化成用最少的直线去覆盖所有的点。联想到按行和列做二分图匹配最小点覆盖，所以尝试将该图旋转45度，发现正好满足，于是想尝试二分匹配。</p>
+<p>一开始纠结于建边复杂度，后来发现是想错了，考虑到之前似乎说Dinic二分图能跑到$O(m\sqrt n)$ ，于是考虑如何建图。旋转45°去考虑点的关系有点麻烦，所以直接根据斜率和坐标得到 斜率-1对应的纵截距 b1 ，斜率1对应纵截距 b2，将不同的纵截距作为点，其实也就是旋转后对应的横纵坐标。</p>
+<p>全部边权设为1，跑最大流，就能得到结果。</p>
+<p>和这道题挺像的 <a href="https://vjudge.net/problem/10535/origin" target="_blank" rel="noopener">POJ - 3041 </a></p>
+      
+      <a class="article-more-link" href="/2020/07/30/Go%20running%E4%BA%8C%E5%88%86%E5%9B%BE%E5%8C%B9%E9%85%8D%EF%BC%88%E6%9C%80%E5%A4%A7%E6%B5%81/">阅读更多...</a>
+      
+      
+      <!-- reward -->
+      
+    </div>
+    
+    
+      <!-- copyright -->
+      
+    <footer class="article-footer">
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%BD%91%E7%BB%9C%E6%B5%81/" rel="tag">网络流</a></li></ul>
+
+
+    </footer>
+
+  </div>
+
+  
+
+  
+  
+  
+
+  
+  
+  
+
+</article>
+    
+    <article id="post-两道杂题" class="article article-type-post" itemscope
+  itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2020/07/30/%E4%B8%A4%E9%81%93%E6%9D%82%E9%A2%98/"
+    >两道最短路</a> 
+</h2>
+ 
+
+    </header>
+    
+
+    
+    <div class="article-meta">
+      <a href="/2020/07/30/%E4%B8%A4%E9%81%93%E6%9D%82%E9%A2%98/" class="article-date">
+  <time datetime="2020-07-30T12:10:41.000Z" itemprop="datePublished">2020-07-30</time>
+</a>
+      
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E9%A2%98%E8%A7%A3/">题解</a>
+  </div>
+
+      
+      
+      
+    </div>
+    
+
+    
+
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+      
+
+      
+      <ul>
+<li><h5 id="HDU-6797-Tokitsukaze-and-Rescue-枚举删边-dfs"><a href="#HDU-6797-Tokitsukaze-and-Rescue-枚举删边-dfs" class="headerlink" title="HDU-6797 Tokitsukaze and Rescue 枚举删边+dfs"></a>HDU-6797 Tokitsukaze and Rescue 枚举删边+dfs</h5></li>
+</ul>
+<p>题意：最多50个点的完全图，删 $k\leq5$ 条边，求最大的最短路，边权范围内随机。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span> pos)</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> pre[N];</span><br><span class="line">    dij(tmp);</span><br><span class="line">    <span class="keyword">if</span>(pos==k+<span class="number">1</span>)&#123;</span><br><span class="line">        ans = <span class="built_in">max</span>(ans,dis[n]);</span><br><span class="line">        <span class="keyword">return</span> ;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">int</span> u = n;</span><br><span class="line">    <span class="keyword">while</span>(u!=<span class="number">1</span>)&#123;</span><br><span class="line">        <span class="keyword">int</span> v=pre[u];</span><br><span class="line">        ll tmp = road[u][v];</span><br><span class="line">        road[u][v] = road[v][u] = INF;</span><br><span class="line">        dfs(pos+<span class="number">1</span>);</span><br><span class="line">        road[u][v] = road[v][u] = tmp;</span><br><span class="line">        u = pre[u];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<ul>
+<li><h5 id="HDU-6166-Senior-Pan-二进制划分最短路"><a href="#HDU-6166-Senior-Pan-二进制划分最短路" class="headerlink" title="HDU-6166 Senior Pan 二进制划分最短路"></a>HDU-6166 Senior Pan 二进制划分最短路</h5></li>
+</ul>
+<p>题意：给定n个点m条边的有向图，指定k个点，问k个点之间的最短距离。</p>
+<p>Dij求最短距离不仅可以求单点，也可以将一个集合视为源点，求它到另一个集合的最短距离。这道题给出k个点，不知道明确的集合划分。</p>
+<p>一种方法是随机排序，前半和后半分别作为单个集合，大概20次就可以通过随机概率得到正确答案，但具有随机性。</p>
+<p>另一种方法是根据各二进制位去划分，因为任意两个点二进制表示不可能完全相同，所以必定可以将不同的点划分到不同的集合。显然这一种方法更好点，大概17次枚举。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">ll ans = INF;</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">18</span>; i++) &#123;</span><br><span class="line">	G[<span class="number">0</span>].<span class="built_in">clear</span>();</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; k; j++) &#123;</span><br><span class="line">       <span class="keyword">if</span>((q[j]&gt;&gt;i)&amp;<span class="number">1</span>) G[<span class="number">0</span>].push_back(node(q[j],<span class="number">0</span>));</span><br><span class="line">       <span class="keyword">else</span> G[q[j]].push_back(node(n+<span class="number">1</span>,<span class="number">0</span>));</span><br><span class="line">    &#125;</span><br><span class="line">    ans=<span class="built_in">min</span>(ans,dij());</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; k; j++) </span><br><span class="line">       <span class="keyword">if</span>(!((q[j]&gt;&gt;i)&amp;<span class="number">1</span>)) </span><br><span class="line">           G[q[j]].pop_back();</span><br><span class="line">    G[<span class="number">0</span>].<span class="built_in">clear</span>();</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; k; j++) &#123;</span><br><span class="line">       <span class="keyword">if</span>((q[j]&gt;&gt;i)&amp;<span class="number">1</span>)  G[q[j]].push_back(node(n+<span class="number">1</span>, <span class="number">0</span>));</span><br><span class="line">	   <span class="keyword">else</span>  G[<span class="number">0</span>].push_back(node(q[j], <span class="number">0</span>));</span><br><span class="line">    &#125;</span><br><span class="line">    ans=<span class="built_in">min</span>(ans,dij());</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; k; j++) </span><br><span class="line">       <span class="keyword">if</span>((q[j]&gt;&gt;i)&amp;<span class="number">1</span>)  G[q[j]].pop_back();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+      
+      <!-- reward -->
+      
+    </div>
+    
+    
+      <!-- copyright -->
+      
+    <footer class="article-footer">
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%9C%80%E7%9F%AD%E8%B7%AF/" rel="tag">最短路</a></li></ul>
+
+
+    </footer>
+
+  </div>
+
+  
+
+  
+  
+  
+
+  
+  
+  
+
+</article>
+    
     <article id="post-New Equipments-费用流" class="article article-type-post" itemscope
   itemprop="blogPost" data-scroll-reveal>
 
@@ -700,166 +866,6 @@
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DP/" rel="tag">DP</a></li></ul>
-
-
-    </footer>
-
-  </div>
-
-  
-
-  
-  
-  
-
-  
-  
-  
-
-</article>
-    
-    <article id="post-树形DP入门题" class="article article-type-post" itemscope
-  itemprop="blogPost" data-scroll-reveal>
-
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2020/07/11/%E6%A0%91%E5%BD%A2DP%E5%85%A5%E9%97%A8%E9%A2%98/"
-    >树形DP入门题</a> 
-</h2>
- 
-
-    </header>
-    
-
-    
-    <div class="article-meta">
-      <a href="/2020/07/11/%E6%A0%91%E5%BD%A2DP%E5%85%A5%E9%97%A8%E9%A2%98/" class="article-date">
-  <time datetime="2020-07-11T02:13:00.000Z" itemprop="datePublished">2020-07-11</time>
-</a>
-      
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E9%A2%98%E8%A7%A3/">题解</a>
-  </div>
-
-      
-      
-      
-    </div>
-    
-
-    
-
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-      
-
-      
-      <p>之前遇到的树形DP，做的都不清楚，重新入下门，希望成功。</p>
-<p>挑几道例题入门，太过类似的就算了</p>
-<ul>
-<li><h4 id="POJ-2342-没有上司的舞会"><a href="#POJ-2342-没有上司的舞会" class="headerlink" title="POJ 2342 没有上司的舞会"></a>POJ 2342 没有上司的舞会</h4><p>题意：公司成员参加舞会，每人都有一个快乐值，成员和直属上司不能同时参加，问如何使得快乐值最大。</p>
-<p>显然$dp[i][j]$表示成员 $i$子树(参加与否)达到的最大值。</p>
-<p>$dp[i][0]=\sum max(dp[j][1],dp[j][0])$, j 为子成员</p>
-<p>$dp[i][1]=\sum dp[j][0]$, j 为子成员</p>
-<p>从根节点开始。</p></li></ul>
-      
-      <a class="article-more-link" href="/2020/07/11/%E6%A0%91%E5%BD%A2DP%E5%85%A5%E9%97%A8%E9%A2%98/">阅读更多...</a>
-      
-      
-      <!-- reward -->
-      
-    </div>
-    
-    
-      <!-- copyright -->
-      
-    <footer class="article-footer">
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DP/" rel="tag">DP</a></li></ul>
-
-
-    </footer>
-
-  </div>
-
-  
-
-  
-  
-  
-
-  
-  
-  
-
-</article>
-    
-    <article id="post-异或前缀和" class="article article-type-post" itemscope
-  itemprop="blogPost" data-scroll-reveal>
-
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2020/07/11/%E5%BC%82%E6%88%96%E5%89%8D%E7%BC%80%E5%92%8C/"
-    >异或前缀和</a> 
-</h2>
- 
-
-    </header>
-    
-
-    
-    <div class="article-meta">
-      <a href="/2020/07/11/%E5%BC%82%E6%88%96%E5%89%8D%E7%BC%80%E5%92%8C/" class="article-date">
-  <time datetime="2020-07-11T01:19:10.000Z" itemprop="datePublished">2020-07-11</time>
-</a>
-      
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E9%A2%98%E8%A7%A3/">题解</a>
-  </div>
-
-      
-      
-      
-    </div>
-    
-
-    
-
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-      
-
-      
-      <p>之后更新部分异或/前缀和的题目。</p>
-<ul>
-<li><h4 id="小AA的数列"><a href="#小AA的数列" class="headerlink" title="小AA的数列"></a>小AA的数列</h4></li>
-</ul>
-<p>题意：求数列所有长度为偶数且在$[L,R]$之间的区间异或和之和</p>
-<p>显然是异或前缀，按位算贡献，问题是如何处理偶数长度和区间限制。然后开始找规律，首先$sum[R-L]=sum[R]\bigoplus sum[L-1]$，针对二进制每位，当前位值为1时，要找此前位为0的数，为0时同理，这样才能产生贡献。所以针对位值，有一个取反的规律，而针对下标，同奇同偶。所以考虑针对每一个右端点，记录此前产生的贡献，并更新贡献。</p>
-      
-      <a class="article-more-link" href="/2020/07/11/%E5%BC%82%E6%88%96%E5%89%8D%E7%BC%80%E5%92%8C/">阅读更多...</a>
-      
-      
-      <!-- reward -->
-      
-    </div>
-    
-    
-      <!-- copyright -->
-      
-    <footer class="article-footer">
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%89%8D%E7%BC%80%E5%92%8C/" rel="tag">前缀和</a></li></ul>
 
 
     </footer>
