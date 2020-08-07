@@ -80,6 +80,87 @@
     
     
     
+    <article id="post-树形DP-树上点最远距离" class="article article-type-post" itemscope
+  itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2020/07/11/%E6%A0%91%E5%BD%A2DP-%E6%A0%91%E4%B8%8A%E7%82%B9%E6%9C%80%E8%BF%9C%E8%B7%9D%E7%A6%BB/"
+    >树形DP-树上点最远距离</a> 
+</h2>
+ 
+
+    </header>
+    
+
+    
+    <div class="article-meta">
+      <a href="/2020/07/11/%E6%A0%91%E5%BD%A2DP-%E6%A0%91%E4%B8%8A%E7%82%B9%E6%9C%80%E8%BF%9C%E8%B7%9D%E7%A6%BB/" class="article-date">
+  <time datetime="2020-07-11T09:11:18.000Z" itemprop="datePublished">2020-07-11</time>
+</a>
+      
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E9%A2%98%E8%A7%A3/">题解</a>
+  </div>
+
+      
+      
+      
+    </div>
+    
+
+    
+
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+      
+
+      
+      <p>仍然在往门里钻 , 写题解是希望重新审视一下细节，可能有亿点点乱。</p>
+<ul>
+<li><h4 id="POJ-2196-Computer"><a href="#POJ-2196-Computer" class="headerlink" title="POJ 2196 Computer"></a>POJ 2196 Computer</h4></li>
+</ul>
+<p>题意：一棵树，对于每个结点求出其他点与它最远的距离。</p>
+<p>之前做最远距离时，利用的是树的直径，这次看到该题，发现树形DP也不失为一个好办法，所以想了树形DP的解法。某点的最长距离，很容易想到是到其子树最长距离+该点为根时另外子树最远距离。</p>
+<p>所以设 $dp[i][j],1\leq i\leq n,j=0,1$ , j 的值表示上述两种子树的状态。</p>
+<p>原子树深度由常规的dfs就可以求出，借下来考虑如何求另外部分。所指的另外部分，如下图，也就是该节点父结点及其另外部分，因而，该点的 $dp[2][1]$可以由父结点更新。</p>
+      
+      <a class="article-more-link" href="/2020/07/11/%E6%A0%91%E5%BD%A2DP-%E6%A0%91%E4%B8%8A%E7%82%B9%E6%9C%80%E8%BF%9C%E8%B7%9D%E7%A6%BB/">阅读更多...</a>
+      
+      
+      <!-- reward -->
+      
+    </div>
+    
+    
+      <!-- copyright -->
+      
+    <footer class="article-footer">
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DP/" rel="tag">DP</a></li></ul>
+
+
+    </footer>
+
+  </div>
+
+  
+
+  
+  
+  
+
+  
+  
+  
+
+</article>
+    
     <article id="post-树形DP入门题" class="article article-type-post" itemscope
   itemprop="blogPost" data-scroll-reveal>
 
@@ -786,87 +867,13 @@
 
 </article>
     
-    <article id="post-Hello" class="article article-type-post" itemscope
-  itemprop="blogPost" data-scroll-reveal>
-
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2020/05/13/Hello/"
-    >Hello</a> 
-</h2>
- 
-
-    </header>
-    
-
-    
-    <div class="article-meta">
-      <a href="/2020/05/13/Hello/" class="article-date">
-  <time datetime="2020-05-13T08:52:36.000Z" itemprop="datePublished">2020-05-13</time>
-</a>
-      
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E9%9A%8F%E7%AC%94/">随笔</a>
-  </div>
-
-      
-      
-      
-    </div>
-    
-
-    
-
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-      
-
-      
-      <p>为什么开一个这样的东西？</p>
-<p>很多次想百度解决问题，结果大多都是复制来复制去，甚至复制的会是错的，想整理自己的问题以及解决方式，希望有点用吧。</p>
-<p>另一方面，想记下来一点东西吧，这样更有意思点？</p>
-<p>还有别的因素，想不到了。</p>
-<hr>
-
-      
-      <!-- reward -->
-      
-    </div>
-    
-    
-      <!-- copyright -->
-      
-    <footer class="article-footer">
-      
-      
-
-    </footer>
-
-  </div>
-
-  
-
-  
-  
-  
-
-  
-  
-  
-
-</article>
-    
   </article>
   
 
   
   <nav class="page-nav">
     
-    <a class="extend prev" rel="prev" href="/">上一页</a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
+    <a class="extend prev" rel="prev" href="/">上一页</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/">下一页</a>
   </nav>
   
 </section>

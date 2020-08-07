@@ -80,6 +80,85 @@
     
     
     
+    <article id="post-不要感动自己" class="article article-type-post" itemscope
+  itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2020/08/07/%E4%B8%8D%E8%A6%81%E6%84%9F%E5%8A%A8%E8%87%AA%E5%B7%B1/"
+    >不要感动自己</a> 
+</h2>
+ 
+
+    </header>
+    
+
+    
+    <div class="article-meta">
+      <a href="/2020/08/07/%E4%B8%8D%E8%A6%81%E6%84%9F%E5%8A%A8%E8%87%AA%E5%B7%B1/" class="article-date">
+  <time datetime="2020-08-07T02:30:47.000Z" itemprop="datePublished">2020-08-07</time>
+</a>
+      
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E9%9A%8F%E7%AC%94/">随笔</a>
+  </div>
+
+      
+      
+      
+    </div>
+    
+
+    
+
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+      
+
+      
+      <p>最近有点好。</p>
+<p>好在队友杰哥和锋哥哥真的好强，带我一步一步往上爬，好在有这些朋友，无私多帮我解决一些问题。想起来这些的时候，我是很想笑的，觉得自己好幸运。</p>
+<p>在我18岁生日那天，我想自己已经是成人了，就要多想一些事情，过的成熟点，自己尽力把握自己的生活。</p>
+<p>在我20岁生日那天，我收到了一个小本子，上面描述了数不尽的美好，我想月光下的眼前人，就是我最想承担的责任。</p>
+<p>在我21岁生日那天，我渐渐认识到了成长不是哪一刻的事情，责任也不只是一个念头，有时候做错了一些事，才知道是哪里不好，能去改正。</p>
+<p>再后来的我懊悔21的生日，懊悔之前的很多事，懊悔自己很多承诺都落空，我以前是一个坚决不说后悔的人，但现在我好像拿什么去换，什么都可以。</p>
+<p>有些事情是不能够做错，不能放弃的，一次也不能，一点也不行，答应了就要去做到最好，我到了现在才深深切切认识到。</p>
+<p>只是想说我就在这，也在未来里，你随时可以抓到我，开开心心的抓到我，健健康康的。</p>
+<p>我从来没有像现在一样明白过。</p>
+<p><img src="/2020/08/07/%E4%B8%8D%E8%A6%81%E6%84%9F%E5%8A%A8%E8%87%AA%E5%B7%B1/%E4%B8%8D%E8%A6%81%E6%84%9F%E5%8A%A8%E8%87%AA%E5%B7%B1%5C1.jpg" alt></p>
+
+      
+      <!-- reward -->
+      
+    </div>
+    
+    
+      <!-- copyright -->
+      
+    <footer class="article-footer">
+      
+      
+
+    </footer>
+
+  </div>
+
+  
+
+  
+  
+  
+
+  
+  
+  
+
+</article>
+    
     <article id="post-Go running二分图匹配（最大流" class="article article-type-post" itemscope
   itemprop="blogPost" data-scroll-reveal>
 
@@ -803,94 +882,13 @@
 
 </article>
     
-    <article id="post-树形DP-树上点最远距离" class="article article-type-post" itemscope
-  itemprop="blogPost" data-scroll-reveal>
-
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2020/07/11/%E6%A0%91%E5%BD%A2DP-%E6%A0%91%E4%B8%8A%E7%82%B9%E6%9C%80%E8%BF%9C%E8%B7%9D%E7%A6%BB/"
-    >树形DP-树上点最远距离</a> 
-</h2>
- 
-
-    </header>
-    
-
-    
-    <div class="article-meta">
-      <a href="/2020/07/11/%E6%A0%91%E5%BD%A2DP-%E6%A0%91%E4%B8%8A%E7%82%B9%E6%9C%80%E8%BF%9C%E8%B7%9D%E7%A6%BB/" class="article-date">
-  <time datetime="2020-07-11T09:11:18.000Z" itemprop="datePublished">2020-07-11</time>
-</a>
-      
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E9%A2%98%E8%A7%A3/">题解</a>
-  </div>
-
-      
-      
-      
-    </div>
-    
-
-    
-
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-      
-
-      
-      <p>仍然在往门里钻 , 写题解是希望重新审视一下细节，可能有亿点点乱。</p>
-<ul>
-<li><h4 id="POJ-2196-Computer"><a href="#POJ-2196-Computer" class="headerlink" title="POJ 2196 Computer"></a>POJ 2196 Computer</h4></li>
-</ul>
-<p>题意：一棵树，对于每个结点求出其他点与它最远的距离。</p>
-<p>之前做最远距离时，利用的是树的直径，这次看到该题，发现树形DP也不失为一个好办法，所以想了树形DP的解法。某点的最长距离，很容易想到是到其子树最长距离+该点为根时另外子树最远距离。</p>
-<p>所以设 $dp[i][j],1\leq i\leq n,j=0,1$ , j 的值表示上述两种子树的状态。</p>
-<p>原子树深度由常规的dfs就可以求出，借下来考虑如何求另外部分。所指的另外部分，如下图，也就是该节点父结点及其另外部分，因而，该点的 $dp[2][1]$可以由父结点更新。</p>
-      
-      <a class="article-more-link" href="/2020/07/11/%E6%A0%91%E5%BD%A2DP-%E6%A0%91%E4%B8%8A%E7%82%B9%E6%9C%80%E8%BF%9C%E8%B7%9D%E7%A6%BB/">阅读更多...</a>
-      
-      
-      <!-- reward -->
-      
-    </div>
-    
-    
-      <!-- copyright -->
-      
-    <footer class="article-footer">
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DP/" rel="tag">DP</a></li></ul>
-
-
-    </footer>
-
-  </div>
-
-  
-
-  
-  
-  
-
-  
-  
-  
-
-</article>
-    
   </article>
   
 
   
   <nav class="page-nav">
     
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">下一页</a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">下一页</a>
   </nav>
   
 </section>
