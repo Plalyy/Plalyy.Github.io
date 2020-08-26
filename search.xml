@@ -587,4 +587,25 @@
         <category>随笔</category>
       </categories>
   </entry>
+  <entry>
+    <title>Edu94-E.Clear the Multiset</title>
+    <url>/2020/08/26/Edu94-E.Clear%20the%20Multiset/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><blockquote>
+<p>好久没有动博客了，顺手写一下吧</p>
+</blockquote>
+<p>题意：给定1-n每个数的数量，一种操作是区间$[L,R]$内每个数减一，另一种是针对一个数减任意，问使得清空的最小操作数。</p>
+<p>在一个连续区间内，要么每个单独去掉，要么先去掉最大共同高度，再重新考虑对子区间操作。这就是所谓的分治？….</p>
+<p>忘掉了出现次数可以为0，最后判断时直接与n取min了，然后被hack掉了，在dfs中其实可以改成考虑非0连续区间。</p>
+<a id="more"></a>
+
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> fi first</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> se second</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">typedef</span> pair&lt;<span class="keyword">int</span> ,<span class="keyword">int</span> &gt;pii;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line"><span class="keyword">char</span> mp[<span class="number">100020</span>];</span><br><span class="line"><span class="keyword">int</span> a[<span class="number">6000</span>];</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span> L,<span class="keyword">int</span> R,<span class="keyword">int</span> H)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(L==R)&#123; <span class="comment">//剩一个直接清空 </span></span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">int</span> ans=<span class="number">0</span>,mi=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=L;i&lt;=R;i++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(i==L) mi=a[i];</span><br><span class="line">        <span class="keyword">else</span> mi=<span class="built_in">min</span>(mi,a[i]);</span><br><span class="line">    &#125; </span><br><span class="line">    ans=mi-H; <span class="comment">//差值</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=L;i&lt;=R;i++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(a[i]!=mi)&#123; <span class="comment">//高于平均</span></span><br><span class="line">            <span class="keyword">int</span> tmp=i;</span><br><span class="line">            <span class="keyword">while</span>(i&lt;=R&amp;&amp;a[i]!=mi)i++;</span><br><span class="line">            <span class="keyword">if</span>(i&gt;R)i--;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(a[i]==mi) i--;</span><br><span class="line">            ans+=dfs(tmp,i,mi);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    ans=<span class="built_in">min</span>(ans,R-L+<span class="number">1</span>);</span><br><span class="line">    <span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n;</span><br><span class="line">    <span class="built_in">cin</span>&gt;&gt;n;</span><br><span class="line">    <span class="keyword">int</span> sum=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)&#123;</span><br><span class="line">        <span class="built_in">cin</span>&gt;&gt;a[i];</span><br><span class="line">        <span class="keyword">if</span>(a[i]) sum++;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//可以每堆一次</span></span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;<span class="built_in">min</span>(dfs(<span class="number">1</span>,n,<span class="number">0</span>),sum)&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>题解</category>
+      </categories>
+      <tags>
+        <tag>codeforces</tag>
+      </tags>
+  </entry>
 </search>

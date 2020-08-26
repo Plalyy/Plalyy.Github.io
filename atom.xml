@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2020-08-07T03:10:44.014Z</updated>
+  <updated>2020-08-26T01:39:46.141Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Edu94-E.Clear the Multiset</title>
+    <link href="http://yoursite.com/2020/08/26/Edu94-E.Clear%20the%20Multiset/"/>
+    <id>http://yoursite.com/2020/08/26/Edu94-E.Clear%20the%20Multiset/</id>
+    <published>2020-08-26T01:02:46.000Z</published>
+    <updated>2020-08-26T01:39:46.141Z</updated>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;好久没有动博客了，顺手写一下吧&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;题意：给定1-n每个数的数量，一种操作是区间$[L,R]$内每个数减一，另一种是针对一个数减任意，问使得清空的最小操作数。&lt;/p&gt;
+&lt;p&gt;在一个连续区间内，要么每个单独去掉，要么先去掉最大共同高度，再重新考虑对子区间操作。这就是所谓的分治？….&lt;/p&gt;
+&lt;p&gt;忘掉了出现次数可以为0，最后判断时直接与n取min了，然后被hack掉了，在dfs中其实可以改成考虑非0连续区间。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="题解" scheme="http://yoursite.com/categories/%E9%A2%98%E8%A7%A3/"/>
+    
+    
+      <category term="codeforces" scheme="http://yoursite.com/tags/codeforces/"/>
+    
+  </entry>
   
   <entry>
     <title>不要感动自己</title>
@@ -506,31 +532,6 @@
     
     
       <category term="题解" scheme="http://yoursite.com/categories/%E9%A2%98%E8%A7%A3/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>第一天</title>
-    <link href="http://yoursite.com/2020/05/16/%E7%AC%AC%E4%B8%80%E5%A4%A9/"/>
-    <id>http://yoursite.com/2020/05/16/%E7%AC%AC%E4%B8%80%E5%A4%A9/</id>
-    <published>2020-05-16T10:14:18.000Z</published>
-    <updated>2020-05-16T10:19:28.767Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;
-        
-      
-    
-    </summary>
-    
-    
-      <category term="随笔" scheme="http://yoursite.com/categories/%E9%9A%8F%E7%AC%94/"/>
     
     
   </entry>
