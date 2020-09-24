@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2020-08-26T01:39:46.141Z</updated>
+  <updated>2020-09-22T01:20:29.063Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>P1344巧妙最小割数</title>
+    <link href="http://yoursite.com/2020/09/21/P1344%E5%B7%A7%E5%A6%99%E6%9C%80%E5%B0%8F%E5%89%B2%E6%95%B0/"/>
+    <id>http://yoursite.com/2020/09/21/P1344%E5%B7%A7%E5%A6%99%E6%9C%80%E5%B0%8F%E5%89%B2%E6%95%B0/</id>
+    <published>2020-09-21T05:12:49.000Z</published>
+    <updated>2020-09-22T01:20:29.063Z</updated>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;又是好久没有更新博客了，这段时间发生蛮多事情的，各种方面，可能就没太多心思更博客了，之后可能会顺便写一下总结，感觉很多一团糟，慢慢做吧，希望都会好。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;p&gt;题意：求有向图1到n的最小割以及最小割边数。&lt;/p&gt;
+&lt;p&gt;这道题没有要求输出数量最少的最小割集，所以有个巧妙的办法解决。&lt;/p&gt;
+&lt;p&gt;将边权设为 $w&lt;em&gt;a+1$ , a要大于边数， 简单证明，设最小割集为 $w_1+w_2+…+w_x=ans$，则 $(w_1&lt;/em&gt;a+1) + (w_2&lt;em&gt;a+1) + … + (w_x&lt;/em&gt;a+1) = ans&lt;em&gt;a+x$，其中 $x \leq m$ (m为边数) ，所以要保证 $a &amp;gt; m$ ，不影响答案。 然后求出的就是 $S = ans&lt;/em&gt;a+x$ ， 因为 $x &amp;lt; a$，所以 $\frac{S}{a}=ans$ , S%a=x 就得出了最小割值和最小割边数。&lt;/p&gt;
+&lt;p&gt;加强版的话肯定要输出最小割集，那么可以考虑正常做法，跑完最大流之后，对于满流的边从大到小排序，满足割去前最大流 - 当前边流 = 割去后最大流的就加到割集中，删边继续跑最大流。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="题解" scheme="http://yoursite.com/categories/%E9%A2%98%E8%A7%A3/"/>
+    
+    
+      <category term="网络流" scheme="http://yoursite.com/tags/%E7%BD%91%E7%BB%9C%E6%B5%81/"/>
+    
+  </entry>
   
   <entry>
     <title>Edu94-E.Clear the Multiset</title>
@@ -507,32 +535,6 @@
     
     
       <category term="DP" scheme="http://yoursite.com/tags/DP/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>最近题目</title>
-    <link href="http://yoursite.com/2020/05/21/%E6%9C%80%E8%BF%91%E9%A2%98%E7%9B%AE/"/>
-    <id>http://yoursite.com/2020/05/21/%E6%9C%80%E8%BF%91%E9%A2%98%E7%9B%AE/</id>
-    <published>2020-05-21T07:43:00.000Z</published>
-    <updated>2020-05-22T09:58:19.114Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h3 id=&quot;0-最近&quot;&gt;&lt;a href=&quot;#0-最近&quot; class=&quot;headerlink&quot; title=&quot;0.最近&quot;&gt;&lt;/a&gt;0.最近&lt;/h3&gt;&lt;p&gt;前几天比赛挺多的，也挺自闭，补题有点慢了，尤其那个线段树专场搞的我有点崩溃，让自己怀疑是不是这块的料，还是好好调整下心态吧。&lt;/p&gt;
-&lt;h3 id=&quot;1-焦作站B题&quot;&gt;&lt;a href=&quot;#1-焦作站B题&quot; class=&quot;headerlink&quot; title=&quot;1.焦作站B题&quot;&gt;&lt;/a&gt;1.焦作站B题&lt;/h3&gt;&lt;p&gt;&lt;a href=&quot;https://codeforces.com/gym/102028/problem/B&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;B. Ultraman vs. Aodzilla and Bodzilla&lt;/a&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;题意：作为勇士的锋gg要跟怪兽A、B进行回合式战斗，锋gg每次只能攻击一只怪兽但被两只怪兽攻击，锋gg第 $i$ 回合的伤害为 $i $，请给出最优的攻击序列，要求使锋gg受到最小的伤害且同样伤害的情况下序列的字典序最小。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;del&gt;比赛的时候李哥还是锋gg读了一下题，然后我们就没来得及做了。&lt;/del&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;回合式战斗要想受到最小的伤害，一是优先解决部分怪兽，二是尽可能快速解决战斗。所以分为优先解决A还是B两种情况，然后保证回合数最小。先预处理下伤害值 sum[ ] ，因为每天的伤害值是公差为1的等差数列，所以根据lower_bound( HA+HB )确定回合数一定是最优的回合数，不受伤害溢出之类情况的影响，然后具体分析。&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;
-    
-    </summary>
-    
-    
-      <category term="题解" scheme="http://yoursite.com/categories/%E9%A2%98%E8%A7%A3/"/>
-    
     
   </entry>
   

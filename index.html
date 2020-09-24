@@ -80,6 +80,87 @@
     
     
     
+    <article id="post-P1344巧妙最小割数" class="article article-type-post" itemscope
+  itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2020/09/21/P1344%E5%B7%A7%E5%A6%99%E6%9C%80%E5%B0%8F%E5%89%B2%E6%95%B0/"
+    >P1344巧妙最小割数</a> 
+</h2>
+ 
+
+    </header>
+    
+
+    
+    <div class="article-meta">
+      <a href="/2020/09/21/P1344%E5%B7%A7%E5%A6%99%E6%9C%80%E5%B0%8F%E5%89%B2%E6%95%B0/" class="article-date">
+  <time datetime="2020-09-21T05:12:49.000Z" itemprop="datePublished">2020-09-21</time>
+</a>
+      
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E9%A2%98%E8%A7%A3/">题解</a>
+  </div>
+
+      
+      
+      
+    </div>
+    
+
+    
+
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+      
+
+      
+      <blockquote>
+<p>又是好久没有更新博客了，这段时间发生蛮多事情的，各种方面，可能就没太多心思更博客了，之后可能会顺便写一下总结，感觉很多一团糟，慢慢做吧，希望都会好。</p>
+</blockquote>
+<hr>
+<p>题意：求有向图1到n的最小割以及最小割边数。</p>
+<p>这道题没有要求输出数量最少的最小割集，所以有个巧妙的办法解决。</p>
+<p>将边权设为 $w<em>a+1$ , a要大于边数， 简单证明，设最小割集为 $w_1+w_2+…+w_x=ans$，则 $(w_1</em>a+1) + (w_2<em>a+1) + … + (w_x</em>a+1) = ans<em>a+x$，其中 $x \leq m$ (m为边数) ，所以要保证 $a &gt; m$ ，不影响答案。 然后求出的就是 $S = ans</em>a+x$ ， 因为 $x &lt; a$，所以 $\frac{S}{a}=ans$ , S%a=x 就得出了最小割值和最小割边数。</p>
+<p>加强版的话肯定要输出最小割集，那么可以考虑正常做法，跑完最大流之后，对于满流的边从大到小排序，满足割去前最大流 - 当前边流 = 割去后最大流的就加到割集中，删边继续跑最大流。</p>
+      
+      <a class="article-more-link" href="/2020/09/21/P1344%E5%B7%A7%E5%A6%99%E6%9C%80%E5%B0%8F%E5%89%B2%E6%95%B0/">阅读更多...</a>
+      
+      
+      <!-- reward -->
+      
+    </div>
+    
+    
+      <!-- copyright -->
+      
+    <footer class="article-footer">
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%BD%91%E7%BB%9C%E6%B5%81/" rel="tag">网络流</a></li></ul>
+
+
+    </footer>
+
+  </div>
+
+  
+
+  
+  
+  
+
+  
+  
+  
+
+</article>
+    
     <article id="post-Edu94-E.Clear the Multiset" class="article article-type-post" itemscope
   itemprop="blogPost" data-scroll-reveal>
 
@@ -764,83 +845,6 @@
 <p>这道题每条边最大花费1e6，开ll吧，我小细节WA了好久。</p>
       
       <a class="article-more-link" href="/2020/07/14/%E5%AF%B9%E5%81%B6%E5%9B%BE-%E7%8A%B6%E6%80%81%E8%BD%AC%E7%A7%BB/">阅读更多...</a>
-      
-      
-      <!-- reward -->
-      
-    </div>
-    
-    
-      <!-- copyright -->
-      
-    <footer class="article-footer">
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%BD%91%E7%BB%9C%E6%B5%81/" rel="tag">网络流</a></li></ul>
-
-
-    </footer>
-
-  </div>
-
-  
-
-  
-  
-  
-
-  
-  
-  
-
-</article>
-    
-    <article id="post-对偶图-狼抓兔子" class="article article-type-post" itemscope
-  itemprop="blogPost" data-scroll-reveal>
-
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2020/07/14/%E5%AF%B9%E5%81%B6%E5%9B%BE-%E7%8B%BC%E6%8A%93%E5%85%94%E5%AD%90/"
-    >对偶图-狼抓兔子</a> 
-</h2>
- 
-
-    </header>
-    
-
-    
-    <div class="article-meta">
-      <a href="/2020/07/14/%E5%AF%B9%E5%81%B6%E5%9B%BE-%E7%8B%BC%E6%8A%93%E5%85%94%E5%AD%90/" class="article-date">
-  <time datetime="2020-07-14T02:47:58.000Z" itemprop="datePublished">2020-07-14</time>
-</a>
-      
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E9%A2%98%E8%A7%A3/">题解</a>
-  </div>
-
-      
-      
-      
-    </div>
-    
-
-    
-
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-      
-
-      
-      <h5 id="最小割-对偶图最短路"><a href="#最小割-对偶图最短路" class="headerlink" title="最小割=对偶图最短路"></a>最小割=对偶图最短路</h5><p>处理最小割问题时，考虑到时限，可以转为对偶图做</p>
-<p>来道例题 <a href="https://www.luogu.com.cn/problem/P4001" target="_blank" rel="noopener">狼抓兔子</a></p>
-<p>题意：封锁一条边的花费等于流量，问最小花费使得左上角无法到达右下角</p>
-<img src="/2020/07/14/%E5%AF%B9%E5%81%B6%E5%9B%BE-%E7%8B%BC%E6%8A%93%E5%85%94%E5%AD%90/1.png">
-      
-      <a class="article-more-link" href="/2020/07/14/%E5%AF%B9%E5%81%B6%E5%9B%BE-%E7%8B%BC%E6%8A%93%E5%85%94%E5%AD%90/">阅读更多...</a>
       
       
       <!-- reward -->
