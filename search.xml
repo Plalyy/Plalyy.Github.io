@@ -568,32 +568,9 @@
       </tags>
   </entry>
   <entry>
-    <title>不要感动自己</title>
-    <url>/2020/08/07/%E4%B8%8D%E8%A6%81%E6%84%9F%E5%8A%A8%E8%87%AA%E5%B7%B1/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>最近有点好。</p>
-<p>好在队友杰哥和锋哥哥真的好强，带我一步一步往上爬，好在有这些朋友，无私多帮我解决一些问题。想起来这些的时候，我是很想笑的，觉得自己好幸运。</p>
-<a id="more"></a>
-
-<p>在我18岁生日那天，我想自己已经是成人了，就要多想一些事情，过的成熟点，自己尽力把握自己的生活。</p>
-<p>在我20岁生日那天，我收到了一个小本子，上面描述了数不尽的美好，我想月光下的眼前人，就是我最想承担的责任。</p>
-<p>在我21岁生日那天，我渐渐认识到了成长不是哪一刻的事情，责任也不只是一个念头，有时候做错了一些事，才知道是哪里不好，能去改正。</p>
-<p>再后来的我懊悔21的生日，懊悔之前的很多事，懊悔自己很多承诺都落空，我以前是一个坚决不说后悔的人，但现在我好像拿什么去换，什么都可以。</p>
-<p>有些事情是不能够做错，不能放弃的，一次也不能，一点也不行，答应了就要去做到最好，我到了现在才深深切切认识到。</p>
-<p>只是想说我就在这，也在未来里，你随时可以抓到我，开开心心的抓到我，健健康康的。</p>
-<p>我从来没有像现在一样明白过。</p>
-<p><img src="/2020/08/07/%E4%B8%8D%E8%A6%81%E6%84%9F%E5%8A%A8%E8%87%AA%E5%B7%B1/%E4%B8%8D%E8%A6%81%E6%84%9F%E5%8A%A8%E8%87%AA%E5%B7%B1%5C1.jpg" alt></p>
-]]></content>
-      <categories>
-        <category>随笔</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>Edu94-E.Clear the Multiset</title>
+    <title>Edu94 E.Clear the Multiset</title>
     <url>/2020/08/26/Edu94-E.Clear%20the%20Multiset/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><blockquote>
-<p>好久没有动博客了，顺手写一下吧</p>
-</blockquote>
-<p>题意：给定1-n每个数的数量，一种操作是区间$[L,R]$内每个数减一，另一种是针对一个数减任意，问使得清空的最小操作数。</p>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>题意：给定1-n每个数的数量，一种操作是区间$[L,R]$内每个数减一，另一种是针对一个数减任意，问使得清空的最小操作数。</p>
 <p>在一个连续区间内，要么每个单独去掉，要么先去掉最大共同高度，再重新考虑对子区间操作。这就是所谓的分治？….</p>
 <p>忘掉了出现次数可以为0，最后判断时直接与n取min了，然后被hack掉了，在dfs中其实可以改成考虑非0连续区间。</p>
 <a id="more"></a>
@@ -612,12 +589,12 @@
     <title>P1344巧妙最小割数</title>
     <url>/2020/09/21/P1344%E5%B7%A7%E5%A6%99%E6%9C%80%E5%B0%8F%E5%89%B2%E6%95%B0/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><blockquote>
-<p>又是好久没有更新博客了，这段时间发生蛮多事情的，各种方面，可能就没太多心思更博客了，之后可能会顺便写一下总结，感觉很多一团糟，慢慢做吧，希望都会好。</p>
+<p>都会好。</p>
 </blockquote>
 <hr>
 <p>题意：求有向图1到n的最小割以及最小割边数。</p>
 <p>这道题没有要求输出数量最少的最小割集，所以有个巧妙的办法解决。</p>
-<p>将边权设为 $w<em>a+1$ , a要大于边数， 简单证明，设最小割集为 $w_1+w_2+…+w_x=ans$，则 $(w_1</em>a+1) + (w_2<em>a+1) + … + (w_x</em>a+1) = ans<em>a+x$，其中 $x \leq m$ (m为边数) ，所以要保证 $a &gt; m$ ，不影响答案。 然后求出的就是 $S = ans</em>a+x$ ， 因为 $x &lt; a$，所以 $\frac{S}{a}=ans$ , S%a=x 就得出了最小割值和最小割边数。</p>
+<p>将边权设为 $w*a+1$ , a要大于边数， 简单证明，设最小割集为 $w_1+w_2+…+w_x=ans$，则 $(w_1×a+1) + (w_2×a+1) + … + (w_x×a+1) = ans×a+x$，其中 $x \leq m$ (m为边数) ，所以要保证 $a &gt; m$ ，不影响答案。 然后求出的就是 $S = ans×a+x$ ， 因为 $x &lt; a$，所以 $\frac{S}{a}=ans$ , $S%a=x$ 就得出了最小割值和最小割边数。</p>
 <p>加强版的话肯定要输出最小割集，那么可以考虑正常做法，跑完最大流之后，对于满流的边从大到小排序，满足割去前最大流 - 当前边流 = 割去后最大流的就加到割集中，删边继续跑最大流。</p>
 <a id="more"></a>
 
@@ -628,6 +605,28 @@
       </categories>
       <tags>
         <tag>网络流</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>HDU6736 Forest Program 找环</title>
+    <url>/2020/09/30/HDU6736-Forest%20Program%20%E6%89%BE%E7%8E%AF/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><ul>
+<li>题意：给定仙人掌图，问拆边使得变为森林的方案数。</li>
+</ul>
+<p>画一下样例，发现在环中的贡献为 2^(边数)-1，否则贡献为2^(边数)。然后就是统计环长度和是否使用。</p>
+<p>看到仙人掌图，直接上tarjan求点双，可以很容易获得每个环中的边数。不过好像有点麻烦，可以直接用dfs求解。</p>
+<p>无向图dfs，dep 和 vis 数组，当目标点已经遍历过时，如果两者 dep之差&gt;= 3，说明存在环，两者之差就是该环的环长。只有碰到 !vis的点才会继续dfs，可行。</p>
+<p>给定的不一定是连通图？</p>
+<p>点双代码：</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">    tarjan 求环长 算贡献</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line"><span class="keyword">const</span> ll mod = <span class="number">998244353</span>;</span><br><span class="line">ll ans=<span class="number">1</span>;</span><br><span class="line"><span class="keyword">int</span> dfn[<span class="number">1000020</span>],low[<span class="number">1000020</span>];</span><br><span class="line"><span class="keyword">int</span> vis[<span class="number">1000020</span>];</span><br><span class="line"><span class="keyword">int</span> Stack[<span class="number">1000020</span>],pos,tot;</span><br><span class="line"><span class="keyword">int</span> h[<span class="number">1000020</span>],ne[<span class="number">1000020</span>],e[<span class="number">1000020</span>];</span><br><span class="line"><span class="keyword">int</span> idx;</span><br><span class="line"><span class="keyword">int</span> n,m;</span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span> &gt; Q[<span class="number">1000020</span>];</span><br><span class="line"><span class="keyword">int</span> cnt=<span class="number">0</span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">ppow</span><span class="params">(ll a,ll n)</span></span>&#123;</span><br><span class="line">    ll ans = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span>(n)&#123;</span><br><span class="line">        <span class="keyword">if</span>(n&amp;<span class="number">1</span>)</span><br><span class="line">            ans = (ans * a) % mod;</span><br><span class="line">        a = (a * a) % mod;</span><br><span class="line">        n &gt;&gt;= <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">add</span><span class="params">(<span class="keyword">int</span> u,<span class="keyword">int</span> v)</span></span>&#123;</span><br><span class="line">    e[idx]=v,ne[idx]=h[u],h[u]=idx++;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">tarjan</span><span class="params">(<span class="keyword">int</span> x,<span class="keyword">int</span> fa)</span></span>&#123;</span><br><span class="line">    dfn[x]=low[x]=++tot;</span><br><span class="line">    Stack[++pos]=x;</span><br><span class="line">    vis[x]=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">if</span>(x==fa&amp;&amp;h[x]==<span class="number">-1</span>) &#123; </span><br><span class="line">        Q[++cnt].push_back(x);</span><br><span class="line">        <span class="keyword">return</span> ;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=h[x];~i;i=ne[i])&#123;</span><br><span class="line">        <span class="keyword">int</span> to=e[i];</span><br><span class="line">        <span class="keyword">if</span>(!dfn[to])&#123;</span><br><span class="line">            tarjan(to,x);</span><br><span class="line">            low[x]=<span class="built_in">min</span>(low[x],low[to]);</span><br><span class="line">            <span class="keyword">if</span>(low[to]&gt;=dfn[x])&#123; <span class="comment">//直接开始出栈</span></span><br><span class="line">                cnt++;</span><br><span class="line">                <span class="keyword">int</span> y;</span><br><span class="line">                <span class="keyword">do</span>&#123;</span><br><span class="line">                    y=Stack[pos--];</span><br><span class="line">                    Q[cnt].push_back(y);</span><br><span class="line">                &#125;<span class="keyword">while</span>(y!=to);</span><br><span class="line">                Q[cnt].push_back(x);</span><br><span class="line"></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(vis[to])&#123;</span><br><span class="line">            low[x]=<span class="built_in">min</span>(low[x],dfn[to]);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    ios::sync_with_stdio(<span class="literal">false</span>);</span><br><span class="line">    <span class="built_in">cin</span>.tie(<span class="number">0</span>);</span><br><span class="line">    <span class="built_in">cout</span>.tie(<span class="number">0</span>);</span><br><span class="line">    <span class="built_in">memset</span>(h,<span class="number">-1</span>,<span class="keyword">sizeof</span>(h));</span><br><span class="line">    <span class="built_in">cin</span>&gt;&gt;n&gt;&gt;m;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=m;i++)&#123;</span><br><span class="line">        <span class="keyword">int</span> u,v;</span><br><span class="line">        <span class="built_in">cin</span>&gt;&gt;u&gt;&gt;v;</span><br><span class="line">        add(u,v);</span><br><span class="line">        add(v,u);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(!dfn[i]) tarjan(i,i);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=cnt;i++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(Q[i].<span class="built_in">size</span>()&gt;<span class="number">2</span>)&#123;</span><br><span class="line">            ans = ans * (ppow(<span class="number">2l</span>l,(ll)Q[i].<span class="built_in">size</span>())<span class="number">-1</span>) %mod;</span><br><span class="line">            m-=Q[i].<span class="built_in">size</span>();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(m&gt;<span class="number">0</span>) ans = ans * ppow(<span class="number">2l</span>l,(ll)m)%mod;</span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;ans&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>dfs代码：</p>
+]]></content>
+      <categories>
+        <category>题解</category>
+      </categories>
+      <tags>
+        <tag>图论</tag>
       </tags>
   </entry>
 </search>

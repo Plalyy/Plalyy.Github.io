@@ -78,7 +78,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> Word count:</span>
-            <span class="post-count">684</span>
+            <span class="post-count">627</span>
         </span>
     </span>
 
@@ -111,12 +111,12 @@
 
       
       <blockquote>
-<p>又是好久没有更新博客了，这段时间发生蛮多事情的，各种方面，可能就没太多心思更博客了，之后可能会顺便写一下总结，感觉很多一团糟，慢慢做吧，希望都会好。</p>
+<p>都会好。</p>
 </blockquote>
 <hr>
 <p>题意：求有向图1到n的最小割以及最小割边数。</p>
 <p>这道题没有要求输出数量最少的最小割集，所以有个巧妙的办法解决。</p>
-<p>将边权设为 $w<em>a+1$ , a要大于边数， 简单证明，设最小割集为 $w_1+w_2+…+w_x=ans$，则 $(w_1</em>a+1) + (w_2<em>a+1) + … + (w_x</em>a+1) = ans<em>a+x$，其中 $x \leq m$ (m为边数) ，所以要保证 $a &gt; m$ ，不影响答案。 然后求出的就是 $S = ans</em>a+x$ ， 因为 $x &lt; a$，所以 $\frac{S}{a}=ans$ , S%a=x 就得出了最小割值和最小割边数。</p>
+<p>将边权设为 $w*a+1$ , a要大于边数， 简单证明，设最小割集为 $w_1+w_2+…+w_x=ans$，则 $(w_1×a+1) + (w_2×a+1) + … + (w_x×a+1) = ans×a+x$，其中 $x \leq m$ (m为边数) ，所以要保证 $a &gt; m$ ，不影响答案。 然后求出的就是 $S = ans×a+x$ ， 因为 $x &lt; a$，所以 $\frac{S}{a}=ans$ , $S%a=x$ 就得出了最小割值和最小割边数。</p>
 <p>加强版的话肯定要输出最小割集，那么可以考虑正常做法，跑完最大流之后，对于满流的边从大到小排序，满足割去前最大流 - 当前边流 = 割去后最大流的就加到割集中，删边继续跑最大流。</p>
 <a id="more"></a>
 
@@ -144,10 +144,19 @@
   
   <nav class="article-nav">
     
+      <a href="/2020/09/30/HDU6736-Forest%20Program%20%E6%89%BE%E7%8E%AF/" class="article-nav-link">
+        <strong class="article-nav-caption">上一篇</strong>
+        <div class="article-nav-title">
+          
+            HDU6736 Forest Program 找环
+          
+        </div>
+      </a>
+    
     
       <a href="/2020/08/26/Edu94-E.Clear%20the%20Multiset/" class="article-nav-link">
         <strong class="article-nav-caption">下一篇</strong>
-        <div class="article-nav-title">Edu94-E.Clear the Multiset</div>
+        <div class="article-nav-title">Edu94 E.Clear the Multiset</div>
       </a>
     
   </nav>
