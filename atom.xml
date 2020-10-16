@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2020-10-16T15:14:56.717Z</updated>
+  <updated>2020-10-16T15:33:19.971Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -21,17 +21,17 @@
     <link href="http://yoursite.com/2020/10/16/%E5%B7%AE%E5%88%86%E7%BA%A6%E6%9D%9FA-CCPC2019harbin/"/>
     <id>http://yoursite.com/2020/10/16/%E5%B7%AE%E5%88%86%E7%BA%A6%E6%9D%9FA-CCPC2019harbin/</id>
     <published>2020-10-16T14:58:33.000Z</published>
-    <updated>2020-10-16T15:14:56.717Z</updated>
+    <updated>2020-10-16T15:33:19.971Z</updated>
     
     <summary type="html">
     
-      
-      
-        
-        
-          &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;
-        
-      
+      &lt;p&gt;&lt;a href=&quot;https://vjudge.net/problem/Gym-102394A/origin&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;传送门&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;题意：一行N个点，有两种规则，问约束条件下最少的点数&lt;/p&gt;
+&lt;p&gt;1：区间  $[L i, Ri]$  中选择的点数量  $\geq K$  &lt;/p&gt;
+&lt;p&gt;2：除区间  $[L i, Ri]$  外，选择的点数量   $\geq K$&lt;/p&gt;
+&lt;p&gt;想法：观察规则1，得到不等式 $X_{R}-X_{L-1}\geq K$ ，显然是差分约束，而规则二与答案有关 ，$X_{R}-X_{L-1}\geq SUM-K$ 。差分约束可以通过判环检查是否有解，因而可以二分答案，check函数里建边跑差分约束。对于这个差分约束要找所有能找的条件，比如$X_i-X_{i-1}\leq1$ ,  $X_i-X_{i-1}\geq0$ , $X_n-X_0\leq mid$ ,  $X_n-X_0\geq mid$ 。&lt;/p&gt;
+&lt;p&gt;二分加了个log，最后一直T，发现可以通过K优化下界，好像可以省出来一个log。不过想不到的话，可以加SLF优化跑过去。而且上面说的是跑最短路的，最长路可能也会更快，还没试…&lt;/p&gt;
+&lt;p&gt;优化下界后最短路代码  点击：&lt;/p&gt;
     
     </summary>
     
