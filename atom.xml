@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2020-10-19T00:47:05.146Z</updated>
+  <updated>2020-10-19T01:06:16.386Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -17,22 +17,36 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>Acwing区间-差分约束</title>
+    <title>Acwing区间-差分约束or数据结构</title>
     <link href="http://yoursite.com/2020/10/19/Acwing%E5%8C%BA%E9%97%B4-%E5%B7%AE%E5%88%86%E7%BA%A6%E6%9D%9F/"/>
     <id>http://yoursite.com/2020/10/19/Acwing%E5%8C%BA%E9%97%B4-%E5%B7%AE%E5%88%86%E7%BA%A6%E6%9D%9F/</id>
     <published>2020-10-19T00:38:20.000Z</published>
-    <updated>2020-10-19T00:47:05.146Z</updated>
+    <updated>2020-10-19T01:06:16.386Z</updated>
     
     <summary type="html">
     
       &lt;p&gt;&lt;a href=&quot;https://www.acwing.com/problem/content/364/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;传送门&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;给定n个区间$[a_i,b_i]$和整数$c_i$，使得区间中整数数量$\geq c_i$ 始终成立，问这些区间构造的整数集合Z最少包含多少个数。&lt;/p&gt;
+&lt;p&gt;给定n个区间$[a_i,b_i]$和整数$c_i$，使得区间中整数数量$\geq c_i$ 始终成立，问这些区间构造的整数集合Z最少包含多少个数。$(n \leq5e4,c\leq 5e4)$&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;差分约束解法：&lt;/li&gt;
+&lt;/ul&gt;
 &lt;p&gt;首先确定求最小解，选择最长路。&lt;/p&gt;
 &lt;p&gt;区间选数问题可以通过前缀和求解，分析条件：&lt;/p&gt;
 &lt;p&gt;1\ $S_{b_i}-S_{a_i-1}\geq c_i$&lt;/p&gt;
 &lt;p&gt;2\ $S_i-S_{i-1}\leq1$&lt;/p&gt;
 &lt;p&gt;3\ $S_i-S_{i-1}\geq0$&lt;/p&gt;
 &lt;p&gt;且输入时可以维护整个集合的最左端点和最右端点，事实证明数据大的时候，通过上下界剪枝是很有用的。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;贪心+数据结构：&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;首先将区间按右端点从小到大进行排序，可知对于每个区间，点数优先放靠右的位置，可以尽可能参与后面区间的贡献。&lt;/p&gt;
+&lt;p&gt;所以对每个区间进行贪心，查询已有多少，差额从右端开始补，复杂度$O(n^2)$&lt;/p&gt;
+&lt;p&gt;上述过程简化后为：&lt;/p&gt;
+&lt;p&gt;1\ 查询$[l,r]$数字数量&lt;/p&gt;
+&lt;p&gt;2\ 单点更新，设置为1&lt;/p&gt;
+&lt;p&gt;3\ 从当前点往左找第一个0&lt;/p&gt;
+&lt;p&gt;前两种操作很常见，第三种操作用并查集，初始$fa[i]=i$，本身都为0，当对单个区间从右开始更新时，假设将 $i$ 位置设为1，则$fa[i]=i-1$，此时假设 $i-1 $ 未更新，则 $i$ 指向0，否则 $i$ 与 $i-1$ 合并（类似）。&lt;/p&gt;
+&lt;p&gt;时间复杂度$O（5e4logn)$&lt;/p&gt;
     
     </summary>
     
