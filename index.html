@@ -80,6 +80,87 @@
     
     
     
+    <article id="post-Acwing区间-差分约束" class="article article-type-post" itemscope
+  itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2020/10/19/Acwing%E5%8C%BA%E9%97%B4-%E5%B7%AE%E5%88%86%E7%BA%A6%E6%9D%9F/"
+    >Acwing区间-差分约束</a> 
+</h2>
+ 
+
+    </header>
+    
+
+    
+    <div class="article-meta">
+      <a href="/2020/10/19/Acwing%E5%8C%BA%E9%97%B4-%E5%B7%AE%E5%88%86%E7%BA%A6%E6%9D%9F/" class="article-date">
+  <time datetime="2020-10-19T00:38:20.000Z" itemprop="datePublished">2020-10-19</time>
+</a>
+      
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E9%A2%98%E8%A7%A3/">题解</a>
+  </div>
+
+      
+      
+      
+    </div>
+    
+
+    
+
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+      
+
+      
+      <p><a href="https://www.acwing.com/problem/content/364/" target="_blank" rel="noopener">传送门</a></p>
+<p>给定n个区间$[a_i,b_i]$和整数$c_i$，使得区间中整数数量$\geq c_i$ 始终成立，问这些区间构造的整数集合Z最少包含多少个数。</p>
+<p>首先确定求最小解，选择最长路。</p>
+<p>区间选数问题可以通过前缀和求解，分析条件：</p>
+<p>1\ $S_{b_i}-S_{a_i-1}\geq c_i$</p>
+<p>2\ $S_i-S_{i-1}\leq1$</p>
+<p>3\ $S_i-S_{i-1}\geq0$</p>
+<p>且输入时可以维护整个集合的最左端点和最右端点，事实证明数据大的时候，通过上下界剪枝是很有用的。</p>
+      
+      <a class="article-more-link" href="/2020/10/19/Acwing%E5%8C%BA%E9%97%B4-%E5%B7%AE%E5%88%86%E7%BA%A6%E6%9D%9F/">阅读更多...</a>
+      
+      
+      <!-- reward -->
+      
+    </div>
+    
+    
+      <!-- copyright -->
+      
+    <footer class="article-footer">
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%B7%AE%E5%88%86%E7%BA%A6%E6%9D%9F/" rel="tag">差分约束</a></li></ul>
+
+
+    </footer>
+
+  </div>
+
+  
+
+  
+  
+  
+
+  
+  
+  
+
+</article>
+    
     <article id="post-差分约束A-CCPC2019harbin" class="article article-type-post" itemscope
   itemprop="blogPost" data-scroll-reveal>
 
@@ -787,83 +868,6 @@
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%AE%A1%E7%AE%97%E5%87%A0%E4%BD%95/" rel="tag">计算几何</a></li></ul>
-
-
-    </footer>
-
-  </div>
-
-  
-
-  
-  
-  
-
-  
-  
-  
-
-</article>
-    
-    <article id="post-最短路-k条路免费" class="article article-type-post" itemscope
-  itemprop="blogPost" data-scroll-reveal>
-
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2020/07/15/%E6%9C%80%E7%9F%AD%E8%B7%AF-k%E6%9D%A1%E8%B7%AF%E5%85%8D%E8%B4%B9/"
-    >最短路-k条路免费</a> 
-</h2>
- 
-
-    </header>
-    
-
-    
-    <div class="article-meta">
-      <a href="/2020/07/15/%E6%9C%80%E7%9F%AD%E8%B7%AF-k%E6%9D%A1%E8%B7%AF%E5%85%8D%E8%B4%B9/" class="article-date">
-  <time datetime="2020-07-15T09:37:04.000Z" itemprop="datePublished">2020-07-15</time>
-</a>
-      
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E9%A2%98%E8%A7%A3/">题解</a>
-  </div>
-
-      
-      
-      
-    </div>
-    
-
-    
-
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-      
-
-      
-      <p>突然觉得想标题也是一个麻烦的事情，要不以后还是题目标题+概括方法吧。</p>
-<p><strong>题意</strong>：在1到N的路径上，可以指定将不超过K条边的权值设为0，总花费为剩下边中，权值最大边对应的值。</p>
-<p>分析：关于这道题，暂时想到了二分，二维保存状态，看了题解说可以分层图处理，不过这道题层数有点多，就先写下前两种做法，再换一道例题练练分层图。</p>
-<p>① 易知路径小于K条边，花费为0。大于K条边时，总花费即为第K+1大的边权值，目的是令最大值最小，可以想到二分花费，check函数就是检查路经中大于该花费的边数 $\leq K$ , 因为最优的其实并不一定为真正意义上的最短路，所以用BFS去检查，用一个 deque 来维护大于和小于该花费的结点，由于BFS是逐层（递增）的，因而对于小于的放前面，大于的放后面。</p>
-      
-      <a class="article-more-link" href="/2020/07/15/%E6%9C%80%E7%9F%AD%E8%B7%AF-k%E6%9D%A1%E8%B7%AF%E5%85%8D%E8%B4%B9/">阅读更多...</a>
-      
-      
-      <!-- reward -->
-      
-    </div>
-    
-    
-      <!-- copyright -->
-      
-    <footer class="article-footer">
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%9C%80%E7%9F%AD%E8%B7%AF/" rel="tag">最短路</a></li></ul>
 
 
     </footer>
