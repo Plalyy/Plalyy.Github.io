@@ -111,7 +111,7 @@
 
       
       <p>  <a href="https://www.luogu.com.cn/problem/P4926" target="_blank" rel="noopener">传送门</a></p>
-<p>题意：每人都有一个分数, $a\geq k<em>b$ 时称A倍杀了B， $k</em>a\leq b$ 时则A被B倍杀，现在部分人立下flag，A没倍杀B或A被B倍杀，A都要女装。现在将条件K放松为 K-T,求最大的T，使得一定有人女装。</p>
+<p>题意：每人都有一个分数, $a\geq kb$ 时称A倍杀了B， $ka\leq b$ 时则A被B倍杀，现在部分人立下flag，A没倍杀B或A被B倍杀，A都要女装。现在将条件K放松为 K-T,求最大的T，使得一定有人女装。</p>
 <p>分析题目显然是差分约束的做法，当题目有解时可以调整T，采用二分T，check里判有无环，但这个是相乘不等式，有两种思路：</p>
 <ul>
 <li>两边取log，转成三角不等式的形式，最长路或最短路都可以，要注意判环的数量，0指分数为0。</li>

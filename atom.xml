@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2020-10-21T01:03:00.017Z</updated>
+  <updated>2020-10-21T01:30:08.029Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -21,12 +21,12 @@
     <link href="http://yoursite.com/2020/10/21/%E5%80%8D%E6%9D%80%E6%B5%8B%E9%87%8F%E8%80%85-%E5%B7%AE%E5%88%86%E7%BA%A6%E6%9D%9F/"/>
     <id>http://yoursite.com/2020/10/21/%E5%80%8D%E6%9D%80%E6%B5%8B%E9%87%8F%E8%80%85-%E5%B7%AE%E5%88%86%E7%BA%A6%E6%9D%9F/</id>
     <published>2020-10-21T00:48:24.000Z</published>
-    <updated>2020-10-21T01:03:00.017Z</updated>
+    <updated>2020-10-21T01:30:08.029Z</updated>
     
     <summary type="html">
     
       &lt;p&gt;  &lt;a href=&quot;https://www.luogu.com.cn/problem/P4926&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;传送门&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;题意：每人都有一个分数, $a\geq k&lt;em&gt;b$ 时称A倍杀了B， $k&lt;/em&gt;a\leq b$ 时则A被B倍杀，现在部分人立下flag，A没倍杀B或A被B倍杀，A都要女装。现在将条件K放松为 K-T,求最大的T，使得一定有人女装。&lt;/p&gt;
+&lt;p&gt;题意：每人都有一个分数, $a\geq kb$ 时称A倍杀了B， $ka\leq b$ 时则A被B倍杀，现在部分人立下flag，A没倍杀B或A被B倍杀，A都要女装。现在将条件K放松为 K-T,求最大的T，使得一定有人女装。&lt;/p&gt;
 &lt;p&gt;分析题目显然是差分约束的做法，当题目有解时可以调整T，采用二分T，check里判有无环，但这个是相乘不等式，有两种思路：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;两边取log，转成三角不等式的形式，最长路或最短路都可以，要注意判环的数量，0指分数为0。&lt;/li&gt;
