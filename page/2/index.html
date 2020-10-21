@@ -80,6 +80,92 @@
     
     
     
+    <article id="post-辛普森积分" class="article article-type-post" itemscope
+  itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2020/07/16/%E8%BE%9B%E6%99%AE%E6%A3%AE%E7%A7%AF%E5%88%86/"
+    >K-Keyboard Free辛普森积分</a> 
+</h2>
+ 
+
+    </header>
+    
+
+    
+    <div class="article-meta">
+      <a href="/2020/07/16/%E8%BE%9B%E6%99%AE%E6%A3%AE%E7%A7%AF%E5%88%86/" class="article-date">
+  <time datetime="2020-07-16T01:41:32.000Z" itemprop="datePublished">2020-07-16</time>
+</a>
+      
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E9%A2%98%E8%A7%A3/">题解</a>
+  </div>
+
+      
+      
+      
+    </div>
+    
+
+    
+
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+      
+
+      
+      <p>牛客多校第二场的计算几何题</p>
+<h5 id="题意："><a href="#题意：" class="headerlink" title="题意："></a>题意：</h5><p><strong>给定三个同心圆，不同圆上取一点，求三点构成三角形的期望面积。</strong></p>
+<p>圆上求期望，得出相应的公式然后求积分，不过积分太复杂了，抄了一下辛普森积分，然后发现竟然可以枚举圆上1000个点做，太强了。先抄一下辛普森积分的使用吧。</p>
+<h5 id="辛普森公式："><a href="#辛普森公式：" class="headerlink" title="辛普森公式："></a>辛普森公式：</h5><p><strong>将函数近似成二次函数</strong></p>
+<p>$\int_a^bf(x)dx\approx \int_a^b(Ax^2+Bx+C)dx$</p>
+<p>$\int_a^bf(x)dx\approx \frac{(b-1)(f(a)+f(b)+4f(\frac{a+b}{2}))}{6}$</p>
+<p>$b-a$ 的值越小，两式越接近</p>
+<h5 id="自适应辛普森："><a href="#自适应辛普森：" class="headerlink" title="自适应辛普森："></a>自适应辛普森：</h5><p><strong>自动控制区间大小长度，把积分区间拆成多个小区间后求和</strong></p>
+<p>对于函数 $Simpson(L, R, Ans)$</p>
+<p>先取 $mid=\frac{L+R}{2}$ ，使用上述辛普森公式近似计算左、右区间积分 $Ls$ 和 $Rs$ ，以及整个区间的积分 $S$</p>
+<p>如果 $Ls+Rs$ 与 $S$ 的误差范围允许，则返回 $S$</p>
+<p>否则返回递归 $Simpson(L,mid,Ls)+Simpson(mid,R,Rs)$</p>
+<p>注意，误差范围 $eps$ 过小会导致超时。</p>
+      
+      <a class="article-more-link" href="/2020/07/16/%E8%BE%9B%E6%99%AE%E6%A3%AE%E7%A7%AF%E5%88%86/">阅读更多...</a>
+      
+      
+      <!-- reward -->
+      
+    </div>
+    
+    
+      <!-- copyright -->
+      
+    <footer class="article-footer">
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%AE%A1%E7%AE%97%E5%87%A0%E4%BD%95/" rel="tag">计算几何</a></li></ul>
+
+
+    </footer>
+
+  </div>
+
+  
+
+  
+  
+  
+
+  
+  
+  
+
+</article>
+    
     <article id="post-最短路-k条路免费" class="article article-type-post" itemscope
   itemprop="blogPost" data-scroll-reveal>
 
@@ -774,90 +860,6 @@
     <footer class="article-footer">
       
       
-
-    </footer>
-
-  </div>
-
-  
-
-  
-  
-  
-
-  
-  
-  
-
-</article>
-    
-    <article id="post-序列自动机" class="article article-type-post" itemscope
-  itemprop="blogPost" data-scroll-reveal>
-
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2020/06/12/%E5%BA%8F%E5%88%97%E8%87%AA%E5%8A%A8%E6%9C%BA/"
-    >序列自动机</a> 
-</h2>
- 
-
-    </header>
-    
-
-    
-    <div class="article-meta">
-      <a href="/2020/06/12/%E5%BA%8F%E5%88%97%E8%87%AA%E5%8A%A8%E6%9C%BA/" class="article-date">
-  <time datetime="2020-06-12T12:01:03.000Z" itemprop="datePublished">2020-06-12</time>
-</a>
-      
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E9%A2%98%E8%A7%A3/">题解</a>
-  </div>
-
-      
-      
-      
-    </div>
-    
-
-    
-
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-      
-
-      
-      <p>补题，学一下序列自动机，看了 <a href="https://blog.csdn.net/weixin_30568715/article/details/96500133?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-1.nonecase&depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-1.nonecase" target="_blank" rel="noopener">序列自动机总结与例题</a></p>
-<p>说白了就是一个二维数组 $nxt[i][j]$ ，对于字符集 $a$, $|s|=n$ , $nxt[i][j]$表示$i$ 以后第一个字符 $j$ 的位置，0为根节点，建图即 $DAG$ 。</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i = n ; i &gt;= <span class="number">1</span> ; i ++ )&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> j= <span class="number">1</span> ; j &lt;= a ; j ++ )&#123;</span><br><span class="line">        nxt[i<span class="number">-1</span>][j] = nxt[i][j];</span><br><span class="line">    &#125;</span><br><span class="line">    nxt[i<span class="number">-1</span>][s[i]] = i;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>可以想到的用处：</p>
-<p>​        1.判断是否是原字符串的子序列</p>
-<p>​        2.求子序列个数</p>
-<p>​        3.求两串的公共子序列个数</p>
-<p>​        4.求串的回文子序列个数</p>
-<p>​        5.求一个$A,B$的最长公共子序列$S$，使得$C$是的子序列</p>
-<p>//代码还没搬上来</p>
-      
-      <a class="article-more-link" href="/2020/06/12/%E5%BA%8F%E5%88%97%E8%87%AA%E5%8A%A8%E6%9C%BA/">阅读更多...</a>
-      
-      
-      <!-- reward -->
-      
-    </div>
-    
-    
-      <!-- copyright -->
-      
-    <footer class="article-footer">
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2/" rel="tag">字符串</a></li></ul>
-
 
     </footer>
 
