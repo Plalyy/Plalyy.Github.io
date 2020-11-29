@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2020-10-21T01:30:08.029Z</updated>
+  <updated>2020-11-29T13:38:44.448Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>近期</title>
+    <link href="http://yoursite.com/2020/11/29/%E8%BF%91%E6%9C%9F/"/>
+    <id>http://yoursite.com/2020/11/29/%E8%BF%91%E6%9C%9F/</id>
+    <published>2020-11-29T13:23:47.000Z</published>
+    <updated>2020-11-29T13:38:44.448Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="随笔" scheme="http://yoursite.com/categories/%E9%9A%8F%E7%AC%94/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>倍杀测量者-差分约束</title>
@@ -530,30 +555,6 @@
     
     
       <category term="题解" scheme="http://yoursite.com/categories/%E9%A2%98%E8%A7%A3/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>XIU-微信小程序</title>
-    <link href="http://yoursite.com/2020/06/15/XIU-%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/"/>
-    <id>http://yoursite.com/2020/06/15/XIU-%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/</id>
-    <published>2020-06-15T14:27:42.000Z</published>
-    <updated>2020-06-30T12:29:57.003Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h3 id=&quot;微信小程序比赛提交过作品了，这里简单回顾一下。&quot;&gt;&lt;a href=&quot;#微信小程序比赛提交过作品了，这里简单回顾一下。&quot; class=&quot;headerlink&quot; title=&quot;微信小程序比赛提交过作品了，这里简单回顾一下。&quot;&gt;&lt;/a&gt;微信小程序比赛提交过作品了，这里简单回顾一下。&lt;/h3&gt;&lt;p&gt;XIU 修小善  校园维修助手&lt;/p&gt;
-&lt;p&gt;核心基本是订单的增删改查，地址管理，还加了点别的功能&lt;/p&gt;
-&lt;p&gt;感谢三位队友&lt;/p&gt;
-&lt;hr&gt;
-&lt;p&gt;之前看到微信小程序大赛的广告，想着给mm做一个挺不错，那要不先搞一下这个积累点经验？ &lt;/p&gt;
-&lt;p&gt;我转发给了外校的高ZK，他又拉了两个学长Y和C，组成了队伍。这个组队的效率真的蛮高的，然后当天的晚上，我们就基本确定了方向以及分工，做一个校内电子产品维修类的小程序，灵感来自于Y学长在校期间曾在电子社团张罗过类似的事。我和C学长负责一下交互还有数据库相关的，高负责页面，Y学长统筹。&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="杂" scheme="http://yoursite.com/categories/%E6%9D%82/"/>
     
     
   </entry>

@@ -80,6 +80,81 @@
     
     
     
+    <article id="post-近期" class="article article-type-post" itemscope
+  itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2020/11/29/%E8%BF%91%E6%9C%9F/"
+    >近期</a> 
+</h2>
+ 
+
+    </header>
+    
+
+    
+    <div class="article-meta">
+      <a href="/2020/11/29/%E8%BF%91%E6%9C%9F/" class="article-date">
+  <time datetime="2020-11-29T13:23:47.000Z" itemprop="datePublished">2020-11-29</time>
+</a>
+      
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E9%9A%8F%E7%AC%94/">随笔</a>
+  </div>
+
+      
+      
+      
+    </div>
+    
+
+    
+
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+      
+
+      
+      <p>思绪太乱了，正在慢慢整理好。</p>
+<p>补题提高没有跟上，还有一个月时间，以最好的状态提高自己吧。</p>
+<p>十二月份要考六级，之前太浪荡，这次好歹过了吧。</p>
+<p>感情上的问题有的当下无法解决，坦然点，先从做好自己开始吧。</p>
+<p>关于之后的焦虑可以放放，但凡事情都得有个优先级。</p>
+<p>2020，要做好点的告别，不留遗憾。</p>
+
+      
+      <!-- reward -->
+      
+    </div>
+    
+    
+      <!-- copyright -->
+      
+    <footer class="article-footer">
+      
+      
+
+    </footer>
+
+  </div>
+
+  
+
+  
+  
+  
+
+  
+  
+  
+
+</article>
+    
     <article id="post-倍杀测量者-差分约束" class="article article-type-post" itemscope
   itemprop="blogPost" data-scroll-reveal>
 
@@ -784,84 +859,6 @@
 <p>分别求n个匹配，可以令每一条边的容量为1，每次分层找一个匹配，n次分层就可以实现。因为要保证n对匹配必须存在，所以保证每个人至少要有n个较优匹配，最后才能保证达到完美匹配。观察到为开口向上二次函数，可以通过三分找到最优解，然后两边拓展出 $n-1$ 个次优解，三分拓展时可以开一个map标记序号，最后建图跑费用流。补题的时候WA到自闭，以为是分层要改，最后发现是中间有个变量爆 int 了。</p>
       
       <a class="article-more-link" href="/2020/07/25/New%20Equipments-%E8%B4%B9%E7%94%A8%E6%B5%81/">阅读更多...</a>
-      
-      
-      <!-- reward -->
-      
-    </div>
-    
-    
-      <!-- copyright -->
-      
-    <footer class="article-footer">
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%BD%91%E7%BB%9C%E6%B5%81/" rel="tag">网络流</a></li></ul>
-
-
-    </footer>
-
-  </div>
-
-  
-
-  
-  
-  
-
-  
-  
-  
-
-</article>
-    
-    <article id="post-ACM Computer Factory 最大流输出路经" class="article article-type-post" itemscope
-  itemprop="blogPost" data-scroll-reveal>
-
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2020/07/17/ACM%20Computer%20Factory%20%E6%9C%80%E5%A4%A7%E6%B5%81%E8%BE%93%E5%87%BA%E8%B7%AF%E7%BB%8F/"
-    >ACM Computer Factory 最大流输出路经</a> 
-</h2>
- 
-
-    </header>
-    
-
-    
-    <div class="article-meta">
-      <a href="/2020/07/17/ACM%20Computer%20Factory%20%E6%9C%80%E5%A4%A7%E6%B5%81%E8%BE%93%E5%87%BA%E8%B7%AF%E7%BB%8F/" class="article-date">
-  <time datetime="2020-07-17T02:39:27.000Z" itemprop="datePublished">2020-07-17</time>
-</a>
-      
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E9%A2%98%E8%A7%A3/">题解</a>
-  </div>
-
-      
-      
-      
-    </div>
-    
-
-    
-
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-      
-
-      
-      <h4 id="ACM-Computer-Factory-POJ-3436"><a href="#ACM-Computer-Factory-POJ-3436" class="headerlink" title="ACM Computer Factory POJ-3436"></a>ACM Computer Factory <a href="http://poj.org/problem?id=3436" target="_blank" rel="noopener">POJ-3436</a></h4><p>这道题是入门题吧，然而还是到处出现小毛病，我太蠢了。</p>
-<p><strong>题意</strong>：给定 n 个机器，每个机器可以输入原件加工，然后输出原件。机器针对原件输入时会有P个状态，0表示该状态不能存在，1表示必须存在，2表示都可以；针对原件输出也有P个状态，0表示状态无，1表示有。当原件的P个状态全部满足时，才成为成品。给定单位时间每个机器的容量，问单位时间最多生产多少成品，并输出原件加工的路径。</p>
-<p>首先是一个建图，首先想到要拆成输入点和输出点，中间边权值为单位流量，好像有不拆点的也莽过去了，感觉有点问题。然后给定输入输出的P个状态，其实类似于插头，两者匹配就可以连线，某机器的输出连接另一机器的输入，容量为两个机器容量的最小值。当状态全为0时连源点，全为1时连汇点，流量设为INF。然后跑一遍，最大流就出来了。</p>
-<p>然后是输出路径，加工的路径肯定是在 1 ~ n 个机器之间的。因为求最大流时边关系不变，变的只是剩余容量，所以开一个V[]数组提前备份一下 Val[] 容量。跑完最大流之后，枚举每个输出设备到输入设备的边，若 V[] &gt; 0 且 V[] &gt; Val[] ，说明经过这条边，记录下来。 注意，题目要求的是机器之间的路径，不需要考虑源点、汇点。</p>
-<p>总之很水，自己太蠢了。</p>
-      
-      <a class="article-more-link" href="/2020/07/17/ACM%20Computer%20Factory%20%E6%9C%80%E5%A4%A7%E6%B5%81%E8%BE%93%E5%87%BA%E8%B7%AF%E7%BB%8F/">阅读更多...</a>
       
       
       <!-- reward -->
